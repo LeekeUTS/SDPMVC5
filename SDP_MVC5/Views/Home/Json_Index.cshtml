@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Json_Index";
+}
+
+<h2>Json_Index</h2>
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Json_Campus</th>
+        <td>@Html.ActionLink("View", "Json_Campus", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-misc-campus-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_Lecturer</th>
+        <td>@Html.ActionLink("View", "Json_Lecturer", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-misc-lecturer-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_Appointment</th>
+        <td>@Html.ActionLink("View", "Json_Appointment", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-misc-appointment-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_Assignment</th>
+        <td>@Html.ActionLink("View", "Json_Assignment", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-misc-assignment-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_SessionBookingSearch</th>
+        <td>@Html.ActionLink("View", "Json_SessionBookingSearch", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-session-booking-search_StudentId_StartingDtBegin_StartingDtEnd_EndingDtBegin_EndingDtEnd_Campus_LecturerId_SessionTypeId_Active_Page_PageSize" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_SessionType</th>
+        <td>@Html.ActionLink("View", "Json_SessionType", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-session-sessionTypes-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_Student</th>
+        <td>@Html.ActionLink("View", "Json_Student", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-student_id" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_WorkshopBookingSearch</th>
+        <td>@Html.ActionLink("View", "Json_WorkshopBookingSearch", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-workshop-booking-search_StudentId_StartingDtBegin_StartingDtEnd_EndingDtBegin_EndingDtEnd_CampusId_Active_Page_PageSize" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_WorkshopSearch</th>
+        <td>@Html.ActionLink("View", "Json_WorkshopSearch", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-workshop-search_WorkshopSetId_Topic_StartingDtBegin_StartingDtEnd_EndingDtBegin_EndingDtEnd_CampusId_Active_Page_PageSize" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_WorkshopWorkshopSets</th>
+        <td>@Html.ActionLink("View", "Json_WorkshopWorkshopSets", new { }, new { target = "_blank" })</td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/GET-api-workshop-workshopSets-active" target="_blank">Attribute</a></td>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Json_WorkshopBookingCreate</th>
+        <td></td>
+        <td><a href="http://localhost:8080/WebDeploy/Help/Api/POST-api-workshop-booking-create_workshopId_studentId_userId">Attribute</a></td>
+        <td>WorkshopList @Html.ActionLink("[Go To]", "workshopList/2", new {}, new { target="_blank"} )</td>
+    </tr>
+</table>
+
+<ul class="list-group">
+    <li class="list-group-item"><a href="http://localhost:8080/WebDeploy/HELP" target="_blank">Web API</a></li>
+    <li class="list-group-item">@Html.ActionLink("code", "Code_Test", new {}, new { target="_blank"})</li>
+    <li class="list-group-item"></li>
+</ul>

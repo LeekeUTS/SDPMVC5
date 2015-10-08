@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "WorkshopList";
+}
+
+<script>
+    api_ajax("api/workshop/search", "?Active=true&WorkshopSetId=@Model")
+</script>
+<h2>WorkshopList</h2>
+<div class="f_loading"></div>
+<!-- //todo: filter repeat list -->
+<ul class="list-group f_load" data-bind="foreach: ko_array">
+    <li class="list-group-item">
+        <a href="javascript:void(0)" data-toggle="modal" data-target="#WorkshopListModal"
+           data-bind="text: WorkshopId+'. '+topic, attr: {
+    'data-WorkshopId': WorkshopId,
+    'data-topic': topic,
+    'data-description': description,
+    'data-targetingGroup': targetingGroup,
+    'data-campus': campus,
+    'data-StartDate': StartDate,
+    'data-EndDate': EndDate,
+    'data-maximum': maximum,
+    'data-WorkShopSetID': WorkShopSetID,
+    'data-cutoff': cutoff,
+    'data-type': type,
+    'data-reminder_num': reminder_num,
+    'data-reminder_sent': reminder_sent,
+    'data-DaysOfWeek': DaysOfWeek,
+    'data-BookingCount': BookingCount,
+    'data-archived': archived
+}" data-taggle="modal"></a>
+    </li>
+</ul>
+@Html.ActionLink("Back", "Workshop", new { }, new { @class="btn btn-primary sizeFull btn-lg"})
+
+<div class="modal fade" id="WorkshopListModal" tabindex="-1" role="dialog" aria-labelledby="WorkshopListModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title modal-topic" id="WorkshopListModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                <!-- //todo: if td = null then tr = none -->
+                <table class="table table-bordered table-condensed table-striped">
+                    <tr class="none"><th>WorkshopId:</th><td class="modal-WorkshopId"></td></tr>
+                    <tr class="none"><th>topic:</th><td class="modal-topic"></td></tr>
+                    <tr><th>description:</th><td class="modal-description"></td></tr>
+                    <tr><th>targetingGroup:</th><td class="modal-targetingGroup"></td></tr>
+                    <tr><th>campus:</th><td class="modal-campus"></td></tr>
+                    <tr><th>StartDate:</th><td class="modal-StartDate"></td></tr>
+                    <tr><th>EndDate:</th><td class="modal-EndDate"></td></tr>
+                    <tr><th>maximum:</th><td class="modal-maximum"></td></tr>
+                    <tr><th>WorkShopSetID:</th><td class="modal-WorkShopSetID"></td></tr>
+                    <tr class="none"><th>cutoff:</th><td class="modal-cutoff"></td></tr>
+                    <tr><th>type:</th><td class="modal-type"></td></tr>
+                    <tr class="none"><th>reminder_num:</th><td class="modal-reminder_num"></td></tr>
+                    <tr class="none"><th>reminder_sent:</th><td class="modal-reminder_sent"></td></tr>
+                    <tr class="none"><th>DaysOfWeek:</th><td class="modal-DaysOfWeek"></td></tr>
+                    <tr class="none"><th>BookingCount:</th><td class="modal-BookingCount"></td></tr>
+                    <tr class="none"><th>archived:</th><td class="modal-archived"></td></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- //todo: alert booking success -->
+                <!-- @Html.ActionLink("Booking", "Newsession", new { }, new { @class="btn btn-primary"}) -->
+                <!-- //todo: delete this line in the future -->
+                <div class="none" id="test_WorkshopBookingCreate"></div>
+                <a id="WorkshopBookingCreate" class="btn btn-primary">Booking</a>
+
+            </div>
+        </div>
+    </div>
+</div>

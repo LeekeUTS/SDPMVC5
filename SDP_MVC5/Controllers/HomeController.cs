@@ -8,22 +8,108 @@ namespace SDP_MVC5.Controllers
 {
     public class HomeController : Controller
     {
+        //
+        // GET: /Demo/
+
         public ActionResult Index()
         {
+            //return View();
+            return RedirectToAction("Newsession", "Home");
+        }
+
+        public ActionResult Profile()
+        {
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Help()
         {
-            ViewBag.Message = "Your application description page.";
-
+            return View();
+        }
+        public ActionResult Newsession()
+        {
+            return View();
+        }
+        public ActionResult Program()
+        {
+            return View();
+        }
+        public ActionResult Workshop()
+        {
+            return View();
+        }
+        public ActionResult WorkshopList(int id)
+        {
+            //todo: if id=nll then error
+            return View(id);
+        }
+        public ActionResult Signup()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult db_WorkShopSet()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Json_Campus()
+        {
+            return View();
+        }
+
+        public ActionResult Json_Lecturer()
+        { 
+            return View();
+        }
+
+        public ActionResult Json_Appointment()
+        {
+            return View();
+        }
+
+        public ActionResult Json_Assignment()
+        {
+            return View();
+        }
+
+        public ActionResult Json_SessionBookingSearch()
+        {
+            return View();
+        }
+
+        public ActionResult Json_SessionType()
+        {
+            return View();
+        }
+
+        public ActionResult Json_Student()
+        {
+            return View();
+        }
+
+        public ActionResult Json_WorkshopBookingSearch()
+        {
+            return View();
+        }
+
+        public ActionResult Json_WorkshopSearch()
+        {
+            return View();
+        }
+
+        public ActionResult Json_WorkshopWorkshopSets()
+        {
+            return View();
+        }
+
+        public ActionResult Json_Index()
+        {
+            return View();
+        }
+
+        public ActionResult Code_Test()
+        {
             return View();
         }
     }

@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Json_Campus";
+}
+
+<h2>Json_Campus</h2>
+<script src="~/Scripts/knockout-2.2.0.js"></script>
+<script src="~/Json/JsonAssignment.js"></script>
+
+<table class="table table-bordered mtl none" id="table">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>type</th>
+            <th>orderItem</th>
+            <th>iscurrent</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: ko_array_url">
+        <tr>
+            <td data-bind="text: id"></td>
+            <td data-bind="text: type"></td>
+            <td data-bind="text: orderItem"></td>
+            <td data-bind="text: iscurrent"></td>
+        </tr>
+    </tbody>
+</table>

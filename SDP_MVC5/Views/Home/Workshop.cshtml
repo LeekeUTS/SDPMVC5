@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Workshop";
+}
+@Model 
+<script>
+    api_ajax("api/workshop/workshopSets", "/true");
+</script>
+<h1>Student Registration</h1>
+<!-- //todo:just use class or id "loading" to generate the all loading part * -->
+<div class="f_loading"></div>
+
+@*<div class="loading none text_c mal"><button class="btn btn-lg btn-primary m-progress">Button</button></div>*@
+<!-- //todo: filter json -->
+<div class="list-group f_load" data-bind="foreach: ko_array">
+    <a href="workshopList/{id}" class="list-group-item" data-bind="text: name, attr:{ href: 'workshopList/'+id }"></a>
+</div>

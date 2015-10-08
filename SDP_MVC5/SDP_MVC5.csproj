@@ -226,6 +226,24 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Code_Test.cshtml" />
+    <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\Json_Appointment.cshtml" />
+    <Content Include="Views\Home\Json_Assignment.cshtml" />
+    <Content Include="Views\Home\Json_Campus.cshtml" />
+    <Content Include="Views\Home\Json_Index.cshtml" />
+    <Content Include="Views\Home\Json_Lecturer.cshtml" />
+    <Content Include="Views\Home\Json_SessionBookingSearch.cshtml" />
+    <Content Include="Views\Home\Json_SessionType.cshtml" />
+    <Content Include="Views\Home\Json_Student.cshtml" />
+    <Content Include="Views\Home\Json_WorkshopBookingSearch.cshtml" />
+    <Content Include="Views\Home\Json_WorkshopSearch.cshtml" />
+    <Content Include="Views\Home\Json_WorkshopWorkshopSets.cshtml" />
+    <Content Include="Views\Home\Newsession.cshtml" />
+    <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Home\Program.cshtml" />
+    <Content Include="Views\Home\Workshop.cshtml" />
+    <Content Include="Views\Home\WorkshopList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

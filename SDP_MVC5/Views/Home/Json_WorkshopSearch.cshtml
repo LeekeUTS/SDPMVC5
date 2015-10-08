@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Json_WorkshopSearch";
+}
+
+<h2>JsonWorkshopSearch</h2>
+<script src="~/Scripts/knockout-2.2.0.js"></script>
+<script src="~/Json/JsonWorkshopSearch.js"></script>
+
+<table class="table table-bordered mtl none" id="table">
+    <thead>
+        <tr>
+            <th>WorkshopId</th>
+            <th>topic</th>
+            <th>description</th>
+            <th>targetingGroup</th>
+            <th>campus</th>
+            <th>StartDate</th>
+            <th>EndDate</th>
+            <th>maximum</th>
+            <th>WorkShopSetID</th>
+            <th>cutoff</th>
+            <th>type</th>
+            <th>reminder_num</th>
+            <th>reminder_sent</th>
+            <th>DaysOfWeek</th>
+            <th>BookingCount</th>
+            <th>archived</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: ko_array_url">
+    <td data-bind="text: WorkshopId"></td>
+    <td data-bind="text: topic"></td>
+    <td data-bind="text: description"></td>
+    <td data-bind="text: targetingGroup"></td>
+    <td data-bind="text: campus"></td>
+    <td data-bind="text: StartDate"></td>
+    <td data-bind="text: EndDate"></td>
+    <td data-bind="text: maximum"></td>
+    <td data-bind="text: WorkShopSetID"></td>
+    <td data-bind="text: cutoff"></td>
+    <td data-bind="text: type"></td>
+    <td data-bind="text: reminder_num"></td>
+    <td data-bind="text: reminder_sent"></td>
+    <td data-bind="text: DaysOfWeek"></td>
+    <td data-bind="text: BookingCount"></td>
+    <td data-bind="text: archived"></td>
+    </tr>
+    </tbody>
+</table>
+

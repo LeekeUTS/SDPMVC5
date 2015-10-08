@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Json_Lecturer";
+}
+
+<h2>Json_Lecturer</h2>
+
+<script src="~/Scripts/knockout-2.2.0.js"></script>
+<script src="~/Json/JsonLecturer.js"></script>
+<form id="form1" runat="server">
+    <div>
+        <input id="Button1" type="button" value="Get Json" class="btn" />
+    </div>
+</form>
+
+<table class="table table-bordered mtl none" id="table">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>staffID</td>
+            <td>first_name</td>
+            <td>last_name</td>
+            <td>email</td>
+            <td>inactive</td>
+            <td>archived</td>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: ko_array_url">
+        <tr>
+            <td data-bind="text: id"></td>
+            <td data-bind="text: staffID"></td>
+            <td data-bind="text: first_name"></td>
+            <td data-bind="text: last_name"></td>
+            <td data-bind="text: email"></td>
+            <td data-bind="text: inactive"></td>
+            <td data-bind="text: archived"></td>
+        </tr>
+    </tbody>
+</table>

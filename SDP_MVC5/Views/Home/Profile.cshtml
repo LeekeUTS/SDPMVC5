@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+<h1>Student Profile</h1>
+<!-- todo: if td = "" then tr none -->
+<!-- todo: auto change value  -->
+<div class="f_loading"></div>
+<table class="table f_load">
+    <tr><th width="10">Student ID: </th><td data-bind="text: studentID"></td></tr>
+    <tr><th>Preferred Name: </th><td data-bind="text: preferred_name"></td></tr>
+    <tr><th>dob: </th><td data-bind="text: dob"></td></tr>
+    <tr><th>Gender: </th><td data-bind="text: gender"></td></tr>
+    <tr><th>Degree: </th><td data-bind="text: degree"></td></tr>
+    <tr><th>Status: </th><td data-bind="text: status"></td></tr>
+    <tr><th>First Language: </th><td data-bind="text: first_language"></td></tr>
+    <tr><th>Country Origin: </th><td data-bind="text: country_origin"></td></tr>
+    <tr><th>Background: </th><td data-bind="text: background"></td></tr>
+    <tr><th>HSC: </th><td data-bind="text: HSC"></td></tr>
+    <tr><th>HSC Mark: </th><td data-bind="text: HSC_mark"></td></tr>
+    <tr><th>IELTS: </th><td data-bind="text: IELTS"></td></tr>
+    <tr><th>IELTS Mark: </th><td data-bind="text: IELTS_mark"></td></tr>
+    <tr><th>TOEFL: </th><td data-bind="text: TOEFL"></td></tr>
+    <tr><th>TOEFL Mark: </th><td data-bind="text: TOEFL_mark"></td></tr>
+    <tr><th>TAFE: </th><td data-bind="text: TAFE"></td></tr>
+    <tr><th>TAFE Mark: </th><td data-bind="text: TAFE_mark"></td></tr>
+    <tr><th>CULT: </th><td data-bind="text: CULT"></td></tr>
+    <tr><th>CULT Mark: </th><td data-bind="text: CULT_mark"></td></tr>
+    <tr><th>InsearchDEEP: </th><td data-bind="text: InsearchDEEP"></td></tr>
+    <tr><th>InsearchDEEP Mark: </th><td data-bind="text: InsearchDEEP_mark"></td></tr>
+    <tr><th>InsearchDiploma: </th><td data-bind="text: InsearchDiploma"></td></tr>
+    <tr><th nowrap>InsearchDiploma Mark: </th><td data-bind="text: InsearchDiploma_mark"></td></tr>
+    <tr><th>foundationcourse: </th><td data-bind="text: foundationcourse"></td></tr>
+    <tr><th nowrap>foundationcourse Mark: </th><td data-bind="text: foundationcourse_mark"></td></tr>
+    <tr class="none"><th>created: </th><td data-bind="text: created"></td></tr>
+    <tr class="none"><th>creatorID: </th><td data-bind="text: creatorID"></td></tr>
+    <tr><th>degree_details: </th><td data-bind="text: degree_details"></td></tr>
+    <tr class="none"><th>alternative_contact: </th><td data-bind="text: alternative_contact"></td></tr>
+</table>
+<script>
+    api_Student(@User.Identity.Name);
+</script>
