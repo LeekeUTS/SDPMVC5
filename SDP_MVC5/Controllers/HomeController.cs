@@ -17,7 +17,7 @@ namespace SDP_MVC5.Controllers
             return RedirectToAction("Newsession", "Home");
         }
 
-        public ActionResult Profile()
+        public ActionResult Student()
         {
             return View();
         }

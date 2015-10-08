@@ -11,6 +11,11 @@ namespace SDP_MVC5
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/extra").Include(
+                "~/Scripts/knockout-2.2.0.js",
+                "~/Scripts/project.js"));
+
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
 
@@ -25,6 +30,8 @@ namespace SDP_MVC5
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-theme.css",
+                      "~/Content/bootstrap-docs.css",
                       "~/Content/site.css"));
         }
     }
