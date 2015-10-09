@@ -167,8 +167,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510091041323_Initial.cs" />
+    <Compile Include="Migrations\201510091041323_Initial.Designer.cs">
+      <DependentUpon>201510091041323_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510091101251_setnullable.cs" />
+    <Compile Include="Migrations\201510091101251_setnullable.Designer.cs">
+      <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\StudentDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -280,6 +290,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510091041323_Initial.resx">
+      <DependentUpon>201510091041323_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510091101251_setnullable.resx">
+      <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

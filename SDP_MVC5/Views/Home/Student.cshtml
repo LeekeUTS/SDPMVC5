@@ -3,6 +3,7 @@
 }
 
 <h1>Student Profile</h1>
+
 <!-- todo: if td = "" then tr none -->
 <!-- todo: auto change value  -->
 <div class="f_loading"></div>
@@ -38,5 +39,5 @@
     <tr class="none"><th>alternative_contact: </th><td data-bind="text: alternative_contact"></td></tr>
 </table>
 <script>
-    api_Student(@User.Identity.Name);
+    api_Student(@User.Identity.Name.Substring(0,8));
 </script>

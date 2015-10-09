@@ -12,9 +12,4 @@ namespace SDP_MVC5.Models
         public DateTime remindertime { get; set; }
         public string status { get; set; }
     }
-
-    public class ReminderDBContext : DbContext
-    {
-        public DbSet<Reminder> Reminders { get; set; }
-    }
 }

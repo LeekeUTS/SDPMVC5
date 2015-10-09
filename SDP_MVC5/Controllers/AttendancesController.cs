@@ -12,12 +12,12 @@ namespace SDP_MVC5.Controllers
 {
     public class AttendancesController : Controller
     {
-        private AttendanceDBContext db = new AttendanceDBContext();
+        private StudentContext db = new StudentContext();
 
         // GET: Attendances
         public ActionResult Index()
         {
-            return View(db.Attendances.ToList());
+            return View(db.Attendence.ToList());
         }
 
         // GET: Attendances/Details/5
@@ -27,7 +27,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Attendance attendance = db.Attendances.Find(id);
+            Attendance attendance = db.Attendence.Find(id);
             if (attendance == null)
             {
                 return HttpNotFound();
@@ -36,9 +36,15 @@ namespace SDP_MVC5.Controllers
         }
 
         // GET: Attendances/Create
-        public ActionResult Create()
+        public ActionResult Create(int studentID, int workShopID, int bookingID)
         {
-            return View();
+            Attendance data = new Attendance();
+            data.studentID = studentID;
+            data.workshopID = workShopID;
+            data.bookingID = bookingID;
+            data.createdtime = DateTime.Now;
+            data.attendancetime = null;
+            return View(data);
         }
 
         // POST: Attendances/Create
@@ -50,7 +56,7 @@ namespace SDP_MVC5.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Attendances.Add(attendance);
+                db.Attendence.Add(attendance);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +71,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Attendance attendance = db.Attendances.Find(id);
+            Attendance attendance = db.Attendence.Find(id);
             if (attendance == null)
             {
                 return HttpNotFound();
@@ -96,7 +102,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Attendance attendance = db.Attendances.Find(id);
+            Attendance attendance = db.Attendence.Find(id);
             if (attendance == null)
             {
                 return HttpNotFound();
@@ -109,8 +115,8 @@ namespace SDP_MVC5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Attendance attendance = db.Attendances.Find(id);
-            db.Attendances.Remove(attendance);
+            Attendance attendance = db.Attendence.Find(id);
+            db.Attendence.Remove(attendance);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -12,12 +12,12 @@ namespace SDP_MVC5.Controllers
 {
     public class RemindersController : Controller
     {
-        private ReminderDBContext db = new ReminderDBContext();
+        private StudentContext db = new StudentContext();
 
         // GET: Reminders
         public ActionResult Index()
         {
-            return View(db.Reminders.ToList());
+            return View(db.Reminder.ToList());
         }
 
         // GET: Reminders/Details/5
@@ -27,7 +27,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reminder reminder = db.Reminders.Find(id);
+            Reminder reminder = db.Reminder.Find(id);
             if (reminder == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace SDP_MVC5.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Reminders.Add(reminder);
+                db.Reminder.Add(reminder);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reminder reminder = db.Reminders.Find(id);
+            Reminder reminder = db.Reminder.Find(id);
             if (reminder == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace SDP_MVC5.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Reminder reminder = db.Reminders.Find(id);
+            Reminder reminder = db.Reminder.Find(id);
             if (reminder == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace SDP_MVC5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Reminder reminder = db.Reminders.Find(id);
-            db.Reminders.Remove(reminder);
+            Reminder reminder = db.Reminder.Find(id);
+            db.Reminder.Remove(reminder);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

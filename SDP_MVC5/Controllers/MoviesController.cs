@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using MvcMovie.Models;
+using SDP_MVC5.Models;
 
 namespace SDP_MVC5.Controllers
 {
     public class MoviesController : Controller
     {
-        private MovieDBContext db = new MovieDBContext();
+        private StudentContext db = new StudentContext();
 
         // GET: Movies
         public ActionResult Index()

@@ -7,6 +7,9 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    <script>
+        @User.Identity.Name.Substring(0,8)
+    </script>
     @Scripts.Render("~/bundles/extra")
 
 </head>
@@ -19,9 +22,9 @@
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand"> <a href="#">UTS: HELPS</a> </li>
-                <li>@Html.ActionLink("My Information", "Profile", "Home")</li>
+                <li>@Html.ActionLink("My Information", "Student", "Home")</li>
                 <li>@Html.ActionLink("My Bookings", "Newsession", "Home")</li>
-                <li>@Html.ActionLink("My Attendence", "Index", "Attendences")</li>
+                <li>@Html.ActionLink("My Attendence", "Index", "Attendances")</li>
                 <li>@Html.ActionLink("My Reminder", "Index", "Reminders")</li>
                 <li>@Html.ActionLink("Workshop Registration", "Workshop", "Home")</li>
                 <li>@Html.ActionLink("Programs", "Program", "Home")</li>
