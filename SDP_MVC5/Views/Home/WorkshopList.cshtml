@@ -62,13 +62,15 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
                 <!-- //todo: alert booking success -->
                 <!-- @Html.ActionLink("Booking", "Newsession", new { }, new { @class="btn btn-primary"}) -->
                 <!-- //todo: delete this line in the future -->
                 <div class="none" id="test_WorkshopBookingCreate"></div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <a id="WorkshopBookingCreate" class="btn btn-primary">Booking</a>
-
+                @Html.ActionLink("Add to Waiting List", "Create", "Waitings", new { studentID = User.Identity.Name.Substring(0, 8), }, 
+                new { @class = "btn btn-warning", id = "f_WaitingCreate"})
             </div>
         </div>
     </div>
