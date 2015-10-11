@@ -1,22 +1,21 @@
-﻿@model IEnumerable<SDP_MVC5.Models.Reminder>
+﻿@model IEnumerable<SDP_MVC5.Models.Waiting>
 
 @{
-    ViewBag.Title = "My Reminder";
+    ViewBag.Title = "My Waiting List";
 }
 
-<h2>My Reminder</h2>
+<h2>My Waiting List</h2>
 
 <p class="none">
     @Html.ActionLink("Create New", "Create")
 </p>
-<div class="list-group">
-    @foreach (var item in Model)
-    {
-        @Html.ActionLink("[" + item.remindertime.ToString() + "] " + item.workshopID.ToString(), "Details",
-    new { id = item.ID },
-    new { @class = "list-group-item" })
-    }
-</div>
+<ul class="list-group">
+@foreach (var item in Model) {
+    <li class="list-group-item">
+        @Html.ActionLink((item.workshopID.ToString()), "Details", new { id = item.ID })
+    </li>
+}
+</ul>
 <table class="table none">
     <tr>
         <th>
@@ -26,13 +25,7 @@
             @Html.DisplayNameFor(model => model.studentID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.createdtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.remindertime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayNameFor(model => model.created)
         </th>
         <th></th>
     </tr>
@@ -46,13 +39,7 @@
             @Html.DisplayFor(modelItem => item.studentID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.createdtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.remindertime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
+            @Html.DisplayFor(modelItem => item.created)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

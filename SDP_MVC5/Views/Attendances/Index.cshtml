@@ -1,15 +1,22 @@
 ﻿@model IEnumerable<SDP_MVC5.Models.Attendance>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "My Attendances";
 }
 
 <h2>My Attendances</h2>
 
-<p class="">
+<p class="none">
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<div class="list-group">
+@foreach (var item in Model) {
+    @Html.ActionLink("[" + item.attendancetime.ToString() + "] " + item.workshopID.ToString(), "Details", 
+    new { id = item.ID }, 
+    new { @class = "list-group-item" })
+}
+</div>
+<table class="table none">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.workshopID)

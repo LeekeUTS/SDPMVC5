@@ -164,6 +164,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RemindersController.cs" />
+    <Compile Include="Controllers\WaitingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,9 +176,14 @@
     <Compile Include="Migrations\201510091101251_setnullable.Designer.cs">
       <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510111158187_10111055.cs" />
+    <Compile Include="Migrations\201510111158187_10111055.Designer.cs">
+      <DependentUpon>201510111158187_10111055.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Waiting.cs" />
     <Compile Include="Models\StudentDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -280,6 +286,11 @@
     <Content Include="Views\Attendances\Details.cshtml" />
     <Content Include="Views\Attendances\Edit.cshtml" />
     <Content Include="Views\Attendances\Index.cshtml" />
+    <Content Include="Views\Waitings\Create.cshtml" />
+    <Content Include="Views\Waitings\Delete.cshtml" />
+    <Content Include="Views\Waitings\Details.cshtml" />
+    <Content Include="Views\Waitings\Edit.cshtml" />
+    <Content Include="Views\Waitings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510091101251_setnullable.resx">
       <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510111158187_10111055.resx">
+      <DependentUpon>201510111158187_10111055.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
