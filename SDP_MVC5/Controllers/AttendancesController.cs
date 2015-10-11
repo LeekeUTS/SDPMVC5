@@ -17,7 +17,7 @@ namespace SDP_MVC5.Controllers
         // GET: Attendances
         public ActionResult Index()
         {
-            return View(db.Attendence.ToList());
+            return View(db.Attendence.Where(x=>x.studentID.ToString() == User.Identity.Name.Substring(0,8)).ToList());
         }
 
         // GET: Attendances/Details/5
@@ -35,15 +35,18 @@ namespace SDP_MVC5.Controllers
             return View(attendance);
         }
 
+
         // GET: Attendances/Create
-        public ActionResult Create(int studentID, int workShopID, int bookingID)
+        //public ActionResult Create(int studentID, int workShopID, int bookingID)
+        [ActionName("Create")]
+        public ActionResult CreateFrom(Attendance data)
         {
-            Attendance data = new Attendance();
-            data.studentID = studentID;
-            data.workshopID = workShopID;
-            data.bookingID = bookingID;
-            data.createdtime = DateTime.Now;
-            data.attendancetime = null;
+            //Attendance data = new Attendance();
+            //data.studentID = studentID;
+            //data.workshopID = workShopID;
+            //data.bookingID = bookingID;
+            //data.createdtime = DateTime.Now;
+            //data.attendancetime = null;
             return View(data);
         }
 

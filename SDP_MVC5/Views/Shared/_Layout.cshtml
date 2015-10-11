@@ -7,9 +7,6 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    <script>
-        @User.Identity.Name.Substring(0,8)
-    </script>
     @Scripts.Render("~/bundles/extra")
 
 </head>
@@ -57,10 +54,6 @@
             </div>
         </div>
         </div>
-
-       
-
-
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
 </body>

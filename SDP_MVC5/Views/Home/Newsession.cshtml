@@ -70,7 +70,8 @@ ViewBag.Title = "Newsession";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <!-- //todo: alert booking success -->
                 <!-- url: studentID, workshopID -->
-                <a class="btn btn-warning" href="~/Attendances/Create?studentID=@User.Identity.Name.Substring(0,8)&workshopID=87&bookingID=3416">Attendance</a>
+                @Html.ActionLink("Create", "Create", "Attendances", new { studentID = @User.Identity.Name.Substring(0, 8), workshopID = 87, bookingID = 3416, createdtime = DateTime.Now }, null);
+                @*<a class="btn btn-warning" href="~/Attendances/Create?studentID=@User.Identity.Name.Substring(0,8)&workshopID=87&bookingID=3416">Attendance</a>*@
                 <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel this booking</a>
             </div>
         </div>

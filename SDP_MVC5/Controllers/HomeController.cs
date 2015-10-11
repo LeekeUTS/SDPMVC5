@@ -6,11 +6,11 @@ using System.Web.Mvc;
 
 namespace SDP_MVC5.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         //
         // GET: /Demo/
-
         public ActionResult Index()
         {
             //return View();
