@@ -108,50 +108,13 @@ function api_ajax(getUrl, getAfter) {
 
 // Page:WorkshopList
 $(document).ready(function () {
-    $('#WorkshopListModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var studentId = button.data('studentId')
-        var WorkshopId = button.data('workshopid')
-        var topic = button.data('topic')
-        var description = button.data('description')
-        var targetingGroup = button.data('targetingGroup')
-        var campus = button.data('campus')
-        var StartDate = button.data('StartDate')
-        var EndDate = button.data('EndDate')
-        var maximum = button.data('maximum')
-        var WorkShopSetID = button.data('WorkShopSetID')
-        var cutoff = button.data('cutoff')
-        var type = button.data('type')
-        var reminder_num = button.data('reminder_num')
-        var reminder_sent = button.data('reminder_sent')
-        var DaysOfWeek = button.data('DaysOfWeek')
-        var BookingCount = button.data('BookingCount')
-        var archived = button.data('archived')
-        var modal = $(this)
-        modal.find('.modal-WorkshopId').text(WorkshopId)
-        modal.find('.modal-topic').text(topic)
-        modal.find('.modal-description').text(description)
-        modal.find('.modal-targetingGroup').text(targetingGroup)
-        modal.find('.modal-campus').text(campus)
-        modal.find('.modal-StartDate').text(StartDate)
-        modal.find('.modal-EndDate').text(EndDate)
-        modal.find('.modal-maximum').text(maximum)
-        modal.find('.modal-WorkShopSetID').text(WorkShopSetID)
-        modal.find('.modal-cutoff').text(cutoff)
-        modal.find('.modal-type').text(type)
-        modal.find('.modal-reminder_num').text(reminder_num)
-        modal.find('.modal-reminder_sent').text(reminder_sent)
-        modal.find('.modal-DaysOfWeek').text(DaysOfWeek)
-        modal.find('.modal-BookingCount').text(BookingCount)
-        modal.find('.modal-archived').text(archived)
-        $("#WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreate(" + WorkshopId + "," + studentId + "," + studentId + ")")
-    })
+   
 
     //Page:Newsession
     $('#NewsessionModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var studentId = button.data('studentId')
-        var BookingId = button.data('BookingId')
+        var BookingId = button.data('bookingid')
         var workshopid = button.data('workshopid')
         var studentID = button.data('studentID')
         var topic = button.data('topic')
@@ -190,7 +153,9 @@ $(document).ready(function () {
         modal.find('.json-reminder_sent').text(reminder_sent)
         modal.find('.json-WorkshopArchived').text(WorkshopArchived)
         modal.find('.json-BookingArchived').text(BookingArchived)
-        $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopid + "," + studentId + "," + studentId + ")")
+        f_reminderCreateHref = $("#f_reminderCreate").attr("href");
+        $("#f_reminderCreate").attr("href", f_reminderCreateHref + "?workshopid=" + workshopid+"&bookingid="+BookingId);
+        $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopid + "," + studentid + "," + studentid + ")")
     })
 });
 

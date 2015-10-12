@@ -36,9 +36,15 @@ namespace SDP_MVC5.Controllers
         }
 
         // GET: Reminders/Create
-        public ActionResult Create()
+        public ActionResult Create(int workshopID, int bookingID)
         {
-            return View();
+            Reminder reminder = new Reminder();
+            reminder.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+            reminder.createdtime = DateTime.Today;
+            reminder.remindertime = DateTime.Now;
+            reminder.bookingID = bookingID;
+            reminder.workshopID = workshopID;
+            return View(reminder);
         }
 
         // POST: Reminders/Create

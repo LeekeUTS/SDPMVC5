@@ -36,9 +36,13 @@ namespace SDP_MVC5.Controllers
         }
 
         // GET: Waitings/Create
-        public ActionResult Create()
+        public ActionResult Create(int WorkshopID)
         {
-            return View();
+            Waiting data = new Waiting();
+            data.createdtime = DateTime.Today;
+            data.workshopID = WorkshopID;
+            data.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+            return View(data);
         }
 
         // POST: Waitings/Create

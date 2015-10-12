@@ -12,6 +12,7 @@
     <li class="list-group-item">
         <a href="javascript:void(0)" data-toggle="modal" data-target="#WorkshopListModal"
            data-bind="text: WorkshopId+'. '+topic, attr: {
+    'data-studentid': '@User.Identity.Name.Substring(0,8)',
     'data-WorkshopId': WorkshopId,
     'data-topic': topic,
     'data-description': description,
@@ -69,9 +70,51 @@
                 <div class="none" id="test_WorkshopBookingCreate"></div>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <a id="WorkshopBookingCreate" class="btn btn-primary">Booking</a>
-                @Html.ActionLink("Add to Waiting List", "Create", "Waitings", new { studentID = User.Identity.Name.Substring(0, 8), }, 
-                new { @class = "btn btn-warning", id = "f_WaitingCreate"})
+                @Html.ActionLink("Add to Waiting List", "Create", "Waitings", new { }, 
+                         new { @class = "btn btn-warning", id = "f_waitingCreate" })
             </div>
         </div>
     </div>
 </div>
+<script>
+    $('#WorkshopListModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var studentID = button.data('studentid')
+        var WorkshopID = button.data('workshopid')
+        var topic = button.data('topic')
+        var description = button.data('description')
+        var targetingGroup = button.data('targetingGroup')
+        var campus = button.data('campus')
+        var StartDate = button.data('StartDate')
+        var EndDate = button.data('EndDate')
+        var maximum = button.data('maximum')
+        var WorkShopSetID = button.data('WorkShopSetID')
+        var cutoff = button.data('cutoff')
+        var type = button.data('type')
+        var reminder_num = button.data('reminder_num')
+        var reminder_sent = button.data('reminder_sent')
+        var DaysOfWeek = button.data('DaysOfWeek')
+        var BookingCount = button.data('BookingCount')
+        var archived = button.data('archived')
+        var modal = $(this)
+        modal.find('.modal-WorkshopId').text(WorkshopID)
+        modal.find('.modal-topic').text(topic)
+        modal.find('.modal-description').text(description)
+        modal.find('.modal-targetingGroup').text(targetingGroup)
+        modal.find('.modal-campus').text(campus)
+        modal.find('.modal-StartDate').text(StartDate)
+        modal.find('.modal-EndDate').text(EndDate)
+        modal.find('.modal-maximum').text(maximum)
+        modal.find('.modal-WorkShopSetID').text(WorkShopSetID)
+        modal.find('.modal-cutoff').text(cutoff)
+        modal.find('.modal-type').text(type)
+        modal.find('.modal-reminder_num').text(reminder_num)
+        modal.find('.modal-reminder_sent').text(reminder_sent)
+        modal.find('.modal-DaysOfWeek').text(DaysOfWeek)
+        modal.find('.modal-BookingCount').text(BookingCount)
+        modal.find('.modal-archived').text(archived)
+        f_waitingCreateHref = $("#f_waitingCreate").attr("href");
+        $("#f_waitingCreate").attr("href", f_waitingCreateHref + "?workshopid=" + WorkshopID);
+        $("#WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreate(" + WorkshopID + "," + studentID + "," + studentID + ")")
+    })
+</script>

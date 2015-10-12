@@ -168,17 +168,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510091041323_Initial.cs" />
-    <Compile Include="Migrations\201510091041323_Initial.Designer.cs">
-      <DependentUpon>201510091041323_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510091101251_setnullable.cs" />
-    <Compile Include="Migrations\201510091101251_setnullable.Designer.cs">
-      <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510111158187_10111055.cs" />
-    <Compile Include="Migrations\201510111158187_10111055.Designer.cs">
-      <DependentUpon>201510111158187_10111055.cs</DependentUpon>
+    <Compile Include="Migrations\201510120337191_10121437.cs" />
+    <Compile Include="Migrations\201510120337191_10121437.Designer.cs">
+      <DependentUpon>201510120337191_10121437.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -303,14 +295,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510091041323_Initial.resx">
-      <DependentUpon>201510091041323_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510091101251_setnullable.resx">
-      <DependentUpon>201510091101251_setnullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510111158187_10111055.resx">
-      <DependentUpon>201510111158187_10111055.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510120337191_10121437.resx">
+      <DependentUpon>201510120337191_10121437.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

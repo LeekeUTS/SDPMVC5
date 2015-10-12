@@ -71,17 +71,17 @@ ViewBag.Title = "Newsession";
                 <!-- //todo: alert booking success -->
                 <!-- url: studentID, workshopID -->
                 @Html.ActionLink("Reminder", "Create", "Reminders",
-                new { studentID = @User.Identity.Name.Substring(0, 8), workshopID = 87, bookingID = 3416, createdtime = DateTime.Now },
-                new { @class = "btn btn-info" })
+                new { },
+                new { @class = "btn btn-info", id="f_reminderCreate"})
                 @Html.ActionLink("Attendance", "Create", "Attendances",
                 new { studentID = @User.Identity.Name.Substring(0, 8), workshopID = 87, bookingID = 3416, createdtime = DateTime.Now },
                 new { @class = "btn btn-warning" })
-                @*<a class="btn btn-warning" href="~/Attendances/Create?studentID=@User.Identity.Name.Substring(0,8)&workshopID=87&bookingID=3416">Attendance</a>*@
-                <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel this booking</a>
+                <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </div>
 </div>
 <script>
-   
+
+    
 </script>
