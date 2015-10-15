@@ -5,7 +5,7 @@
 }
 
 <h2>Create</h2>
-
+<!-- Todo: default warning language -->
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -14,19 +14,26 @@
         <h4>Attendance</h4>
         <hr />
         <div class="form-group">
-            @Html.LabelFor(model => model.attendancetime, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.workshopName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.attendancetime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.attendancetime, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.workshopName, new { htmlAttributes = new { @class = "form-control", disabled="disabled" } })
+                @Html.ValidationMessageFor(model => model.workshopName, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.passCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.passCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.passCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 @Html.HiddenFor(model => model.createdtime, new { @value = DateTime.Today })
                 @Html.HiddenFor(model => model.bookingID, new { @value = Request.QueryString["bookingid"] })
                 @Html.HiddenFor(model => model.workshopID, new { @value = Request.QueryString["workshopid"] })
                 @Html.HiddenFor(model => model.studentID, new { })
+                @Html.HiddenFor(model => model.attendancetime, new { @value = DateTime.Today })
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>

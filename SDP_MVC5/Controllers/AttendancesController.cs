@@ -35,10 +35,11 @@ namespace SDP_MVC5.Controllers
             return View(attendance);
         }
 
-        public ActionResult Create(int workshopID, int bookingID)
+        public ActionResult Create(int workshopID, int bookingID, string workshopName)
         {
             Attendance attendence = new Attendance();
             attendence.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+            attendence.workshopName = workshopName;
             attendence.createdtime = DateTime.Today;
             attendence.attendancetime = DateTime.Now;
             attendence.bookingID = bookingID;
@@ -51,7 +52,7 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,bookingID,createdtime,attendancetime")] Attendance attendance)
+        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,bookingID,createdtime,attendancetime, workshopName, passCode")] Attendance attendance)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +84,7 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,workshopID,studentID,createdtime,attendancetime,status")] Attendance attendance)
+        public ActionResult Edit([Bind(Include = "ID,workshopID,studentID,createdtime,attendancetime,passCode")] Attendance attendance)
         {
             if (ModelState.IsValid)
             {
