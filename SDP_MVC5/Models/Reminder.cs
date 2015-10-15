@@ -20,5 +20,8 @@ namespace SDP_MVC5.Models
         [Display(Name="Reminder Date")]
         [DataType(DataType.Date)]
         public DateTime remindertime { get; set; }
+        [Required]
+        [Display(Name = "Workshop Name")]
+        public string workshopName { get; set; }
     }
 }

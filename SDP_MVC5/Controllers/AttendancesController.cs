@@ -13,7 +13,7 @@ namespace SDP_MVC5.Controllers
     public class AttendancesController : Controller
     {
         private StudentContext db = new StudentContext();
-
+        //Todo: Attendance: add new fields
         // GET: Attendances
         public ActionResult Index()
         {
@@ -35,27 +35,23 @@ namespace SDP_MVC5.Controllers
             return View(attendance);
         }
 
-
-        // GET: Attendances/Create
-        //public ActionResult Create(int studentID, int workShopID, int bookingID)
-        [ActionName("Create")]
-        public ActionResult CreateFrom(Attendance data)
+        public ActionResult Create(int workshopID, int bookingID)
         {
-            //Attendance data = new Attendance();
-            //data.studentID = studentID;
-            //data.workshopID = workShopID;
-            //data.bookingID = bookingID;
-            //data.createdtime = DateTime.Now;
-            //data.attendancetime = null;
-            return View(data);
+            Attendance attendence = new Attendance();
+            attendence.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+            attendence.createdtime = DateTime.Today;
+            attendence.attendancetime = DateTime.Now;
+            attendence.bookingID = bookingID;
+            attendence.workshopID = workshopID;
+            return View(attendence);
         }
 
-        // POST: Attendances/Create
+        // POST: Attendance/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,attendancetime,status")] Attendance attendance)
+        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,bookingID,createdtime,attendancetime")] Attendance attendance)
         {
             if (ModelState.IsValid)
             {

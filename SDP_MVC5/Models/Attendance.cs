@@ -21,5 +21,9 @@ namespace SDP_MVC5.Models
         [Display(Name = "Attendance Date")]
         [DataType(DataType.Date)]
         public DateTime attendancetime { get; set; }
+        [Display(Name = "Workshop Name")]
+        public string workshopName { get; set; }
+        [Display(Name = "PassCode")]
+        public string passCode { get; set; }
     }
 }

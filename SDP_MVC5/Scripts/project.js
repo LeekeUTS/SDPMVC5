@@ -111,52 +111,7 @@ $(document).ready(function () {
    
 
     //Page:Newsession
-    $('#NewsessionModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var studentId = button.data('studentId')
-        var BookingId = button.data('bookingid')
-        var workshopid = button.data('workshopid')
-        var studentID = button.data('studentID')
-        var topic = button.data('topic')
-        var description = button.data('description')
-        var targetingGroup = button.data('targetingGroup')
-        var campusID = button.data('campusID')
-        var starting = button.data('starting')
-        var ending = button.data('ending')
-        var maximum = button.data('maximum')
-        var cutoff = button.data('cutoff')
-        var canceled = button.data('canceled')
-        var attended = button.data('attended')
-        var WorkShopSetID = button.data('WorkShopSetID')
-        var type = button.data('type')
-        var reminder_num = button.data('reminder_num')
-        var reminder_sent = button.data('reminder_sent')
-        var WorkshopArchived = button.data('WorkshopArchived')
-        var BookingArchived = button.data('BookingArchived')
-        var modal = $(this)
-        modal.find('.json-BookingId').text(BookingId)
-        modal.find('.json-workshopID').text(workshopid)
-        modal.find('.json-studentID').text(studentID)
-        modal.find('.json-topic').text(topic)
-        modal.find('.json-description').text(description)
-        modal.find('.json-targetingGroup').text(targetingGroup)
-        modal.find('.json-campusID').text(campusID)
-        modal.find('.json-starting').text(starting)
-        modal.find('.json-ending').text(ending)
-        modal.find('.json-maximum').text(maximum)
-        modal.find('.json-cutoff').text(cutoff)
-        modal.find('.json-canceled').text(canceled)
-        modal.find('.json-attended').text(attended)
-        modal.find('.json-WorkShopSetID').text(WorkShopSetID)
-        modal.find('.json-type').text(type)
-        modal.find('.json-reminder_num').text(reminder_num)
-        modal.find('.json-reminder_sent').text(reminder_sent)
-        modal.find('.json-WorkshopArchived').text(WorkshopArchived)
-        modal.find('.json-BookingArchived').text(BookingArchived)
-        f_reminderCreateHref = $("#f_reminderCreate").attr("href");
-        $("#f_reminderCreate").attr("href", f_reminderCreateHref + "?workshopid=" + workshopid+"&bookingid="+BookingId);
-        $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopid + "," + studentid + "," + studentid + ")")
-    })
+
 });
 
 //todo: Compile create & cancel in the future

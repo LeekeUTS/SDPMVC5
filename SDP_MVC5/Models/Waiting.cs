@@ -17,5 +17,7 @@ namespace SDP_MVC5.Models
         [Required]
         [DataType(DataType.Date)]
         public DateTime createdtime { get; set; }
+        [Display(Name = "Workshop Name")]
+        public string workshopName { get; set; }
     }
 }
