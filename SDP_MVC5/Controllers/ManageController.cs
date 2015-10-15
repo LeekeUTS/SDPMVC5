@@ -132,6 +132,7 @@ namespace SDP_MVC5.Controllers
 
         //
         // POST: /Manage/EnableTwoFactorAuthentication
+        // Todo: alter language
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EnableTwoFactorAuthentication()

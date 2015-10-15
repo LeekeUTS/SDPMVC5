@@ -10,7 +10,7 @@ ViewBag.Title = "Newsession";
 <ul class="list-group f_load" id="" data-bind="foreach: ko_array">
     <li class="list-group-item">
         <a href="javascript:void(0)" data-toggle="modal" data-target="#NewsessionModal"
-           data-bind="text: workshopID+'. '+topic, attr: {
+           data-bind="text: workshopID +'. '+ topic, attr: {
             'data-studentId': '@User.Identity.Name.Substring(0,8)',
             'data-BookingId': BookingId,
             'data-workshopID': workshopID,
