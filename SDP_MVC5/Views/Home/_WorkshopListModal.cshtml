@@ -1,0 +1,86 @@
+﻿<div class="modal fade" id="WorkshopListModal" tabindex="-1" role="dialog" aria-labelledby="WorkshopListModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title modal-topic" id="WorkshopListModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                <!-- //todo: if td = null then tr = none -->
+                <table class="table table-bordered table-condensed table-striped">
+                    <tr class="none"><th>Workshop ID:</th><td class="modal-WorkshopId"></td></tr>
+                    <tr class="none"><th>Topic:</th><td class="modal-topic"></td></tr>
+                    <tr><th>Description:</th><td class="modal-description"></td></tr>
+                    <tr><th>Targeting Group:</th><td class="modal-targetingGroup"></td></tr>
+                    <tr><th>Campus:</th><td class="modal-campus"></td></tr>
+                    <tr><th>Start Date:</th><td class="modal-StartDate"></td></tr>
+                    <tr><th>End Date:</th><td class="modal-EndDate"></td></tr>
+                    <tr><th>Maximum:</th><td class="modal-maximum"></td></tr>
+                    @*<tr class="none"><th>WorkShopSetID:</th><td class="modal-WorkShopSetID"></td></tr>
+                        <tr class="none"><th>cutoff:</th><td class="modal-cutoff"></td></tr>
+                        <tr class="none"><th>type:</th><td class="modal-type"></td></tr>
+                        <tr class="none"><th>reminder_num:</th><td class="modal-reminder_num"></td></tr>
+                        <tr class="none"><th>reminder_sent:</th><td class="modal-reminder_sent"></td></tr>
+                        <tr class="none"><th>DaysOfWeek:</th><td class="modal-DaysOfWeek"></td></tr>
+                        <tr class="none"><th>BookingCount:</th><td class="modal-BookingCount"></td></tr>
+                        <tr class="none"><th>archived:</th><td class="modal-archived"></td></tr>*@
+                </table>
+            </div>
+            <div class="modal-footer">
+
+                <!-- //todo: alert booking success -->
+                <!-- @Html.ActionLink("Booking", "Newsession", new { }, new { @class="btn btn-primary"}) -->
+                <!-- //todo: delete this line in the future -->
+                <div class="none" id="test_WorkshopBookingCreate"></div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a id="WorkshopBookingCreate" class="btn btn-primary">Booking</a>
+                @Html.ActionLink("Add to Waiting List", "Create", "Waitings", new { },
+                         new { @class = "btn btn-warning", id = "f_waitingCreate" })
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#WorkshopListModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var studentID = button.data('studentid')
+        var WorkshopID = button.data('workshopid')
+        var topic = button.data('topic')
+        var description = button.data('description')
+        var targetingGroup = button.data('targetingGroup')
+        var campus = button.data('campus')
+        var StartDate = button.data('StartDate')
+        var EndDate = button.data('EndDate')
+        var maximum = button.data('maximum')
+        var WorkShopSetID = button.data('workshopsetid')
+        var cutoff = button.data('cutoff')
+        var type = button.data('type')
+        var reminder_num = button.data('reminder_num')
+        var reminder_sent = button.data('reminder_sent')
+        var DaysOfWeek = button.data('DaysOfWeek')
+        var BookingCount = button.data('BookingCount')
+        var archived = button.data('archived')
+        var modal = $(this)
+        modal.find('.modal-WorkshopId').text(WorkshopID)
+        modal.find('.modal-topic').text(topic)
+        modal.find('.modal-description').text(description)
+        modal.find('.modal-targetingGroup').text(targetingGroup)
+        modal.find('.modal-campus').text(campus)
+        modal.find('.modal-StartDate').text(StartDate)
+        modal.find('.modal-EndDate').text(EndDate)
+        modal.find('.modal-maximum').text(maximum)
+        modal.find('.modal-WorkShopSetID').text(WorkShopSetID)
+        modal.find('.modal-cutoff').text(cutoff)
+        modal.find('.modal-type').text(type)
+        modal.find('.modal-reminder_num').text(reminder_num)
+        modal.find('.modal-reminder_sent').text(reminder_sent)
+        modal.find('.modal-DaysOfWeek').text(DaysOfWeek)
+        modal.find('.modal-BookingCount').text(BookingCount)
+        modal.find('.modal-archived').text(archived)
+        f_waitingCreateHref = $("#f_waitingCreate").attr("href");
+        $("#f_waitingCreate").attr("href", f_waitingCreateHref + "?workshopid=" + WorkshopID + "&workshopName=" + topic + "&workshopSetID=" + WorkShopSetID);
+        $("#WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreate(" + WorkshopID + "," + studentID + "," + studentID + ")")
+    })
+
+    
+</script>

@@ -36,12 +36,13 @@ namespace SDP_MVC5.Controllers
         }
 
         // GET: Waitings/Create
-        public ActionResult Create(int WorkshopID, string WorkshopName)
+        public ActionResult Create(int WorkshopID, string WorkshopName, int WorkshopSetID)
         {
             Waiting data = new Waiting();
             data.createdtime = DateTime.Today;
             data.workshopID = WorkshopID;
             data.workshopName = WorkshopName;
+            data.workshopSetID = WorkshopSetID;
             data.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
             return View(data);
         }
@@ -52,7 +53,7 @@ namespace SDP_MVC5.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // Todo: ask default value of database;
-        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,workshopName")] Waiting waiting)
+        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,workshopName,workshopSetID")] Waiting waiting)
         {
             if (ModelState.IsValid)
             {

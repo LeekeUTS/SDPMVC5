@@ -8,7 +8,12 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/extra")
-
+    @if (Request.IsAuthenticated)
+    {
+    <script>
+        studentID=@User.Identity.Name.ToString().Substring(0, 8);
+    </script>
+    }
 </head>
 <body>
     <div id="wrapper">
@@ -49,8 +54,9 @@
                 </div>
                 <h3>Booking System</h3>
             </nav>
-
+            
             <div class="container">
+                <h1 class="none">@(Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host)</h1>
                 @RenderBody()
             </div>
         </div>

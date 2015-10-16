@@ -19,6 +19,7 @@
         <div class="bs-example-modal" style="background: #ffffff; ">
             <div class="modal" style="overflow-y: visible;">
                 <div class="modal-dialog">
+                    @* Todo: anti-repeat *@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h4 class="modal-title">Are you sure?</h4>
@@ -29,6 +30,10 @@
                             <div class="row">
                                 <div class="col-12-xs text-center">
                                     <input type="hidden" value="@DateTime.Now" name="createdtime" id="createdtime">
+                                    @Html.HiddenFor(Model => Model.workshopName)
+                                    @Html.HiddenFor(Model => Model.studentID)
+                                    @Html.HiddenFor(Model => Model.workshopID)
+                                    @Html.HiddenFor(Model => Model.workshopSetID)
                                     <input type="submit" value="Yes" class="btn btn-primary" />
                                     <a class="btn btn-danger btn-md" href="javascript:window.history.back();">No</a>
                                 </div>
@@ -40,49 +45,9 @@
             </div><!-- /.modal -->
         </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="none">
-            <div class="form-group">
-                @Html.LabelFor(model => model.workshopName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.workshopName, new { htmlAttributes = new { @class = "form-control", disabled = "disabled" } })
-                    @Html.ValidationMessageFor(model => model.workshopName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group none">
-                @Html.LabelFor(model => model.workshopID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.workshopID, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.workshopID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group none">
-                @Html.LabelFor(model => model.studentID, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.studentID, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.studentID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            @*<div class="form-group">
-                    @Html.LabelFor(model => model.createdtime, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.createdtime, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.createdtime, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-
-            </div>
-        </div>
     </div>
 }
 
-<div class="none">
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

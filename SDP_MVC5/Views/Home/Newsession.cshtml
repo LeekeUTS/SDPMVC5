@@ -10,7 +10,7 @@ ViewBag.Title = "Newsession";
 <ul class="list-group f_load" id="" data-bind="foreach: ko_array">
     <li class="list-group-item">
         <a href="javascript:void(0)" data-toggle="modal" data-target="#NewsessionModal"
-           data-bind="text: workshopID +'. '+ topic, attr: {
+           data-bind="text: topic, attr: {
             'data-studentId': '@User.Identity.Name.Substring(0,8)',
             'data-BookingId': BookingId,
             'data-workshopID': workshopID,
@@ -34,7 +34,8 @@ ViewBag.Title = "Newsession";
         }"></a>
     </li>
 </ul>
-</div>
+@Html.ActionLink("Booking a Workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
+@Html.ActionLink("Go to 'My Waiting List'", "Index", "Waitings", null, new { @class= "btn btn-info sizeFull btn-lg mtl"})
 <div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -54,12 +55,12 @@ ViewBag.Title = "Newsession";
                     <tr><th>campusID:</th><td class="json-campusID"></td></tr>
                     <tr><th>starting:</th><td class="json-starting"></td></tr>
                     <tr><th>ending:</th><td class="json-ending"></td></tr>
-                    <tr><th>maximum:</th><td class="json-maximum"></td></tr>
+                    <tr class="none"><th>maximum:</th><td class="json-maximum"></td></tr>
                     <tr class="none"><th>cutoff:</th><td class="json-cutoff"></td></tr>
                     <tr class="none"><th>canceled:</th><td class="json-canceled"></td></tr>
                     <tr class="none"><th>attended:</th><td class="json-attended"></td></tr>
                     <tr class="none"><th>WorkShopSetID:</th><td class="json-WorkShopSetID"></td></tr>
-                    <tr><th>type:</th><td class="json-type"></td></tr>
+                    <tr class="none"><th>type:</th><td class="json-type"></td></tr>
                     <tr class="none"><th>reminder_num:</th><td class="json-reminder_num"></td></tr>
                     <tr class="none"><th>reminder_sent:</th><td class="json-reminder_sent"></td></tr>
                     <tr class="none"><th>WorkshopArchived:</th><td class="json-WorkshopArchived"></td></tr>
@@ -70,11 +71,9 @@ ViewBag.Title = "Newsession";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <!-- //todo: alert booking success -->
                 <!-- url: studentID, workshopID -->
-                @Html.ActionLink("Reminder", "Create", "Reminders",
-                new { },
+                @Html.ActionLink("Reminder", "Create", "Reminders", new { },
                 new { @class = "btn btn-info", id="f_reminderCreate"})
-                @Html.ActionLink("Attendance", "Create", "Attendances",
-                new { },
+                @Html.ActionLink("Attendance", "Create", "Attendances", new { },
                          new { @class = "btn btn-warning", id = "f_attendanceCreate" })
                 <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel</a>
             </div>
@@ -130,3 +129,4 @@ ViewBag.Title = "Newsession";
         $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopID + "," + studentID + "," + studentID + ")")
     })
 </script>
+

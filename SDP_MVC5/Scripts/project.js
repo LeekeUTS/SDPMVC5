@@ -1,7 +1,16 @@
 JsonUrl = "http://localhost:8080/WebDeploy/";
 //JsonUrl = "http://utsdp.cloudapp.net/WebDeploy/";
 
+$.ajaxSetup({
+    beforeSend: function (request) {
+        request.setRequestHeader("AppKey", "123456");
+    },
+    contentType: "application/json"
+});
+
 $(document).ready(function () {
+
+
     //Validate
     $('.input-group input[required], .input-group textarea[required], .input-group select[required]').on('keyup change', function() {
         var $form = $(this).closest('form'),
@@ -122,14 +131,18 @@ function api_WorkshopBookingCreate(workshopId, studentId, userId) {
             request.setRequestHeader("AppKey", "123456");
         },
         contentType: "application/json",
-        url: JsonUrl+"api/workshop/booking/create?workshopId="+workshopId+"&studentId="+studentId+"&userId="+userId,
+        url: JsonUrl + "api/workshop/booking/create?workshopId=" + workshopId + "&studentId=" + studentId + "&userId=" + userId,
         dataType: "json",
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
         },
         success: function (result) {
+            console.log(result);
             if (result.IsSuccess == true) {
                 alert("Booking Success");
+                window.location.href = "../Newsession";
+            } else {
+                alert(result.DisplayMessage);
             }
         }
     })
@@ -174,6 +187,7 @@ function api_WorkshopBookingCancel(workshopId, studentId, userId) {
         success: function (result) {
             if (result.IsSuccess == true) {
                 alert("Cancel Success");
+                window.location.href = "Newsession";
             } else {
                 alert("Error:"+result.DisplayMessage);
             }

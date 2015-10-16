@@ -10,8 +10,6 @@ namespace SDP_MVC5.Models
         [Required]
         public int workshopID { get; set; }
         [Required]
-        public int bookingID { get; set; }
-        [Required]
         public int studentID { get; set; }
         [Display(Name = "Created Date")]
         [Required]
@@ -20,5 +18,7 @@ namespace SDP_MVC5.Models
         [Required]
         [Display(Name = "Workshop Name")]
         public string workshopName { get; set; }
+        [Required]
+        public int workshopSetID { get; set; }
     }
 }

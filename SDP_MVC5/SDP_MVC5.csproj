@@ -196,6 +196,18 @@
     <Compile Include="Migrations\201510150814339_10151914.Designer.cs">
       <DependentUpon>201510150814339_10151914.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510160543075_10161642.cs" />
+    <Compile Include="Migrations\201510160543075_10161642.Designer.cs">
+      <DependentUpon>201510160543075_10161642.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510160607145_10161707.cs" />
+    <Compile Include="Migrations\201510160607145_10161707.Designer.cs">
+      <DependentUpon>201510160607145_10161707.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510160621513_10161721.cs" />
+    <Compile Include="Migrations\201510160621513_10161721.Designer.cs">
+      <DependentUpon>201510160621513_10161721.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -307,6 +319,7 @@
     <Content Include="Views\Waitings\Details.cshtml" />
     <Content Include="Views\Waitings\Edit.cshtml" />
     <Content Include="Views\Waitings\Index.cshtml" />
+    <Content Include="Views\Home\_WorkshopListModal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -339,6 +352,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510150814339_10151914.resx">
       <DependentUpon>201510150814339_10151914.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510160543075_10161642.resx">
+      <DependentUpon>201510160543075_10161642.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510160607145_10161707.resx">
+      <DependentUpon>201510160607145_10161707.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510160621513_10161721.resx">
+      <DependentUpon>201510160621513_10161721.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

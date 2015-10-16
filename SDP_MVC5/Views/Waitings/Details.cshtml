@@ -1,33 +1,131 @@
 ﻿@model SDP_MVC5.Models.Waiting
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Waiting List";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>Waiting</h4>
+<h2>Waiting List</h2>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.workshopName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.workshopName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.createdtime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.createdtime)
-        </dd>
-    </dl>
-</div>
-<p>
+    <div class="f_loading"></div>
+    <div class="f_load">
+        <table data-bind="foreach: ko_array" class="table table-bordered">
+            <tr class="none"><th>WorkshopId</th><td data-bind="text: WorkshopId"></td></tr>
+            <tr><th>Topic</th><td data-bind="text: topic"></td></tr>
+            <tr><th>Description</th><td data-bind="text: description" style="white-space:pre-line;"></td></tr>
+            <tr><th>Targeting Group</th><td data-bind="text: targetingGroup"></td></tr>
+            <tr><th>Campus</th><td data-bind="text: campus"></td></tr>
+            <tr><th>Start ate</th><td data-bind="text: StartDate"></td></tr>
+            <tr><th>End Date</th><td data-bind="text: EndDate"></td></tr>
+            <tr><th>Maximum</th><td data-bind="text: maximum"></td></tr>
+            <tr class="none"><th>WorkShopSetID</th><td data-bind="text: WorkShopSetID"></td></tr>
+            <tr class="none"><th>cutoff</th><td data-bind="text: cutoff"></td></tr>
+            <tr class="none"><th>type</th><td data-bind="text: type"></td></tr>
+            <tr class="none"><th>reminder_num</th><td data-bind="text: reminder_num"></td></tr>
+            <tr class="none"><th>reminder_sent</th><td data-bind="text: reminder_sent"></td></tr>
+            <tr class="none"><th>DaysOfWeek</th><td data-bind="text: DaysOfWeek"></td></tr>
+            <tr class="none"><th>BookingCount</th><td data-bind="text: BookingCount"></td></tr>
+            <tr class="none"><th>archived</th><td data-bind="text: archived"></td></tr>
+        </table>
+        <!-- Todo: get value -->
+        @Html.HiddenFor(Model => Model.workshopID, new { id = "f_workshopID" })
+        @Html.HiddenFor(Model => Model.workshopSetID, new { id = "f_workshopSetID" })
+        <div>
+            <div class="alert alert-success f_booking_available">
+                This workshop still have <strong class="f_vacancies"></strong> vacancies.<br /><br />
+                <a class="btn btn-success sizeFull f_WorkshopBookingCreate">Booking</a>
+            </div>
+            <div class="alert alert-danger f_booking_unavailable">
+                This workshop is full, you can't booking now.
+            </div>
+        </div>
+    </div>
+    <div class="none">
+        <form action="~/Waitings/Delete/@Url.RequestContext.RouteData.Values["id"]" method="post">
+            @Html.AntiForgeryToken()
+            <input type="submit" value="Delete" class="btn btn-default f_waiting_del" />
+        </form>
+    </div>
+    <!-- Todo: Error-->
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    @Html.ActionLink("Back to List", "Index", "Waitings", null, new { @class = "btn btn-primary sizeFull btn-lg" })
+    @Html.ActionLink("Go to 'My Booking'", "Newsession", "Home", null, new { @class = "btn btn-warning sizeFull btn-lg mtl" })
+    @Html.ActionLink("Remove this workshop", "Delete", "Waitings", new { id=Url.RequestContext.RouteData.Values["id"]}, new { @class = "btn btn-danger sizeFull btn-lg mtl" })
+<!-- todo: improve js -->
+<script>
+    get_workshopID = $("#f_workshopID").val();
+    get_workshopSetID = $("#f_workshopSetID").val();
+    //console.log(get_WorkshopID);
+    api_WorkshopSingle(get_workshopSetID, get_workshopID, @Url.RequestContext.RouteData.Values["id"]);
+
+    function api_WorkshopSingle(workshopSetID, workshopID, waitingID) {
+        var url = JsonUrl + "api/workshop/search?PageSize=2000&Active=true&WorkshopSetId=" + get_workshopSetID;
+        $(".f_loading").removeClass("none");
+        var params = {};
+        $.get(url, params, function (data) {
+            if (data.IsSuccess == true) {
+                jsonData = data.Results;
+                console.log(jsonData);
+                var finalJson = [];
+                for (var i = 0, len = jsonData.length; i < len; i++) {
+                    if (jsonData[i].WorkshopId == workshopID) {
+                        finalJson.push(jsonData[i]);
+                    }
+                }
+                
+                var singleFinal = [];
+                singleFinal.push(finalJson[0])
+                getMax = singleFinal[0].maximum;
+                getCount = singleFinal[0].BookingCount;
+                if (getMax > getCount) {
+                    $(".f_vacancies").html(getMax - getCount);
+                    $(".f_WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreateViaWaiting(" + workshopID + "," + studentID + "," + studentID + "," + waitingID +")")
+                    $(".f_booking_available").show();
+                    $(".f_booking_unavailable").hide();
+                    console.log("available");
+                } else {
+                    $(".f_booking_available").hide();
+                    $(".f_booking_unavailable").show();
+                    console.log("unavailable");
+
+                }
+                console.log(getMax);
+                console.log(getCount);
+                ko.applyBindings({
+                    ko_array: singleFinal
+                });
+                console.log(finalJson);
+                $(".f_loading div").fadeOut(function () {
+                    $(".f_load").fadeIn();
+                });
+            } else {
+                alert(data.DisplayMessage);
+            }
+        });
+    }
+
+    function api_WorkshopBookingCreateViaWaiting(workshopId, studentId, userId, waitingID) {
+        $.ajax({
+            type: "Post",
+            beforeSend: function (request) {
+                request.setRequestHeader("AppKey", "123456");
+            },
+            contentType: "application/json",
+            url: JsonUrl + "api/workshop/booking/create?workshopId=" + workshopId + "&studentId=" + studentId + "&userId=" + userId,
+            dataType: "json",
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+            },
+            success: function (result) {
+                console.log(result);
+                if (result.IsSuccess == true) {
+                    alert("Booking Success");
+                    $(".f_waiting_del").click();
+                } else {
+                    alert(result.DisplayMessage);
+                }
+            }
+        })
+    }
+</script>
+
+
