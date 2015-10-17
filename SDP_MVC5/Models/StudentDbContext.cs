@@ -13,7 +13,6 @@ namespace SDP_MVC5.Models
         {
         }
 
-        public DbSet<Movie> Movies { get; set; }
         public DbSet<Attendance> Attendence { get; set; }
         public DbSet<Reminder> Reminder { get; set; }
         public DbSet<Waiting> Waitings { get; set; }

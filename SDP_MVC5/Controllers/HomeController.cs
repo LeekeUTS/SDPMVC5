@@ -48,31 +48,6 @@ namespace SDP_MVC5.Controllers
             return View();
         }
 
-        public ActionResult db_WorkShopSet()
-        {
-            return View();
-        }
-
-        public ActionResult Json_Campus()
-        {
-            return View();
-        }
-
-        public ActionResult Json_Lecturer()
-        { 
-            return View();
-        }
-
-        public ActionResult Json_Appointment()
-        {
-            return View();
-        }
-
-        public ActionResult Json_Assignment()
-        {
-            return View();
-        }
-
         public ActionResult Json_SessionBookingSearch()
         {
             return View();
@@ -104,11 +79,6 @@ namespace SDP_MVC5.Controllers
         }
 
         public ActionResult Json_Index()
-        {
-            return View();
-        }
-
-        public ActionResult Code_Test()
         {
             return View();
         }

@@ -162,7 +162,6 @@
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\RemindersController.cs" />
     <Compile Include="Controllers\WaitingsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,6 +207,10 @@
     <Compile Include="Migrations\201510160621513_10161721.Designer.cs">
       <DependentUpon>201510160621513_10161721.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510170029077_10171128.cs" />
+    <Compile Include="Migrations\201510170029077_10171128.Designer.cs">
+      <DependentUpon>201510170029077_10171128.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Attendance.cs" />
@@ -215,7 +218,6 @@
     <Compile Include="Models\StudentDbContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Reminder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -281,15 +283,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Code_Test.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
-    <Content Include="Views\Home\Json_Appointment.cshtml" />
-    <Content Include="Views\Home\Json_Assignment.cshtml" />
-    <Content Include="Views\Home\Json_Campus.cshtml" />
     <Content Include="Views\Home\Json_Index.cshtml" />
-    <Content Include="Views\Home\Json_Lecturer.cshtml" />
-    <Content Include="Views\Home\Json_SessionBookingSearch.cshtml" />
-    <Content Include="Views\Home\Json_SessionType.cshtml" />
     <Content Include="Views\Home\Json_Student.cshtml" />
     <Content Include="Views\Home\Json_WorkshopBookingSearch.cshtml" />
     <Content Include="Views\Home\Json_WorkshopSearch.cshtml" />
@@ -299,11 +294,6 @@
     <Content Include="Views\Home\Program.cshtml" />
     <Content Include="Views\Home\Workshop.cshtml" />
     <Content Include="Views\Home\WorkshopList.cshtml" />
-    <Content Include="Views\Movies\Create.cshtml" />
-    <Content Include="Views\Movies\Delete.cshtml" />
-    <Content Include="Views\Movies\Details.cshtml" />
-    <Content Include="Views\Movies\Edit.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Reminders\Create.cshtml" />
     <Content Include="Views\Reminders\Delete.cshtml" />
     <Content Include="Views\Reminders\Details.cshtml" />
@@ -363,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510160621513_10161721.resx">
       <DependentUpon>201510160621513_10161721.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510170029077_10171128.resx">
+      <DependentUpon>201510170029077_10171128.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
