@@ -17,7 +17,16 @@ namespace SDP_MVC5.Controllers
         // GET: Reminders
         public ActionResult Index()
         {
+            //CustomModel.RemiderNumber = Session["remiders"];
+            //CustomModel.Remiders = db.Reminder.ToList();
+            //return View(CustomModel);
             return View(db.Reminder.ToList());
+        }
+
+        public ActionResult ReminderList()
+        {
+            Session.Abandon();
+            return View(db.Reminder.Where(x => x.remindertime <= DateTime.Today ).ToList());
         }
 
         // GET: Reminders/Details/5

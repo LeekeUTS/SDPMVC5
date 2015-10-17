@@ -2,578 +2,81 @@
     ViewBag.Title = "Program";
 }
 
-			<h1>Student Registration</h1>
-			<form method="post" class="form-horizontal">
-				<input type="Hidden" name="studentID" value="11614195">
-				<input type="Hidden" name="dob" value="19870311">
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Student Name: </label>
-					<div class="col-sm-10"><strong>Liguo Zhou</strong></div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Preferred First Name:</label>
-					<div class="col-sm-10">
-						<input type="Text" class="form-control" name="preferred_name" value="" maxlength="50"/>
-					</div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Faculty: </label>
-					<div class="col-sm-10">Engineering and Information Technology</div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Course: </label>
-					<div class="col-sm-10"><strong>C10148</strong></div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Email: </label>
-					<div class="col-sm-10"><strong>Liguo.Zhou-1@student.uts.edu.au</strong></div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Home phone: </label>
-					<div class="col-sm-10">N/A</div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">Mobile: </label>
-					<div class="col-sm-10"><strong>0405761498</strong></div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Best contact no*:</label>
-					<div class="col-sm-10">
-						<input type="Text" class="form-control" name="alternativecontact" value="0405761498" maxlength="15" />
-					</div>
-				</div>
-				<div class="form-group none">
-					<label for="inputEmail3" class="col-sm-2 control-label">DOB: </label>
-					<div class="col-sm-10"><strong>11/
-						03/
-						1987</strong></div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Gender:</label>
-					<div class="col-sm-10">
-						<label class="radio-inline">
-							<input type="Radio" name="rdoGender" value="M" checked/>
-							M </label>
-						<label class="radio-inline">
-							<input type="Radio" name="rdoGender" value="F"  />
-							F </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Degree*:</label>
-					<div class="col-sm-10">
-						<label class="radio-inline">
-							<input type="Radio" name="rdoDegree" value="UG" onclick="javascript:clearSelect(document.forms[0].rdoUGDegreeDetails); clearRadio(document.forms[0].rdoPGDegreeDetails); showContainer('UGdetails');hideContainer('PGdetails');" checked />
-							Undergraduate </label>
-						<label class="radio-inline">
-							<input type="Radio" name="rdoDegree" value="PG" onclick="javascript:clearSelect(document.forms[0].rdoUGDegreeDetails); clearRadio(document.forms[0].rdoPGDegreeDetails);showContainer('PGdetails');hideContainer('UGdetails');"  />
-							Postgraduate </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputPassword3" class="col-sm-2 control-label">Year*:</label>
-					<div class="col-sm-10">
-						<select  class="form-control" name="rdoUGDegreeDetails">
-							<option value=""></option>
-							<option value="1st" selected> 1st year </option>
-							<option value="2nd"> 2nd year </option>
-							<option value="3rd"> 3rd year </option>
-							<option value="4th"> 4th year </option>
-							<option value="5th"> 5th year </option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group none">
-					<label for="inputPassword3" class="col-sm-2 control-label">Type*:</label>
-					<div class="col-sm-10">
-						<label class="radio-inline">
-							<input type="Radio" name="rdoPGDegreeDetails"  value="course work" />
-							Course work</label>
-						<label class="radio-inline">
-							<input type="Radio" name="rdoPGDegreeDetails"  value="research" />
-							Research </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Status*:</label>
-					<div class="col-sm-10">
-						<label class="radio-inline">
-							<input type="Radio" name="rdoStatus" value="Permanent"  />
-							Permanent </label>
-						<label class="radio-inline">
-							<input type="Radio" name="rdoStatus" value="International" checked />
-							International </label>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> First Language*:</label>
-					<div class="col-sm-10">
-						<select  class="form-control" name="selLang">
-							<option value=""></option>
-							<option value="Abkhazian" >Abkhazian</option>
-							<option value="Afar" >Afar</option>
-							<option value="Afrikaans" >Afrikaans</option>
-							<option value="Albanian" >Albanian</option>
-							<option value="Amharic" >Amharic</option>
-							<option value="Arabic" >Arabic</option>
-							<option value="Armenian" >Armenian</option>
-							<option value="Assamese" >Assamese</option>
-							<option value="Aymara" >Aymara</option>
-							<option value="Azerbaijani" >Azerbaijani</option>
-							<option value="Bashkir" >Bashkir</option>
-							<option value="Basque" >Basque</option>
-							<option value="Belarusian" >Belarusian</option>
-							<option value="Bengali" >Bengali</option>
-							<option value="Bhutani" >Bhutani</option>
-							<option value="Bihari" >Bihari</option>
-							<option value="Bislama" >Bislama</option>
-							<option value="Bosnian" >Bosnian</option>
-							<option value="Breton" >Breton</option>
-							<option value="Bulgarian" >Bulgarian</option>
-							<option value="Burmese" >Burmese</option>
-							<option value="Catalan" >Catalan</option>
-							<option value="Chinese (Cantonese)" >Chinese (Cantonese)</option>
-							<option value="Chinese (Mandarin)"  selected >Chinese (Mandarin)</option>
-							<option value="Chinese (other)" >Chinese (other)</option>
-							<option value="Corsican" >Corsican</option>
-							<option value="Croatian" >Croatian</option>
-							<option value="Czech" >Czech</option>
-							<option value="Danish" >Danish</option>
-							<option value="Dhivehi" >Dhivehi</option>
-							<option value="Dutch" >Dutch</option>
-							<option value="English">English</option>
-							<option value="Esperanto" >Esperanto</option>
-							<option value="Estonian" >Estonian</option>
-							<option value="Faroese" >Faroese</option>
-							<option value="Farsi" >Farsi</option>
-							<option value="Fiji" >Fiji</option>
-							<option value="Finnish" >Finnish</option>
-							<option value="French" >French</option>
-							<option value="Frisian" >Frisian</option>
-							<option value="Galician" >Galician</option>
-							<option value="Ganda" >Ganda</option>
-							<option value="Georgian" >Georgian</option>
-							<option value="German" >German</option>
-							<option value="Gree" >Greek</option>
-							<option value="Greenlandic" >Greenlandic</option>
-							<option value="Guarani" >Guarani</option>
-							<option value="Gujarati" >Gujarati</option>
-							<option value="Haitian Creole" >Haitian Creole</option>
-							<option value="Hausa" >Hausa</option>
-							<option value="Hebrew" >Hebrew</option>
-							<option value="Hindi" >Hindi</option>
-							<option value="Hungarian" >Hungarian</option>
-							<option value="Icelandic" >Icelandic</option>
-							<option value="Indonesian" >Indonesian</option>
-							<option value="Inuktitut" >Inuktitut</option>
-							<option value="Inupiak" >Inupiak</option>
-							<option value="Irish" >Irish</option>
-							<option value="Italian" >Italian</option>
-							<option value="Japanese" >Japanese</option>
-							<option value="Javanese" >Javanese</option>
-							<option value="Kannada" >Kannada</option>
-							<option value="Kashmiri" >Kashmiri</option>
-							<option value="Kazakh" >Kazakh</option>
-							<option value="Khmer" >Khmer</option>
-							<option value="Kinyarwanda" >Kinyarwanda</option>
-							<option value="Kirundi" >Kirundi</option>
-							<option value="Korean" >Korean</option>
-							<option value="Kurdish" >Kurdish</option>
-							<option value="Kyrgyz" >Kyrgyz</option>
-							<option value="Laothian" >Laothian</option>
-							<option value="Latin" >Latin</option>
-							<option value="Latvian" >Latvian</option>
-							<option value="Lingala" >Lingala</option>
-							<option value="Lithuanian" >Lithuanian</option>
-							<option value="Macedonian" >Macedonian</option>
-							<option value="Malagasy" >Malagasy</option>
-							<option value="Malay" >Malay</option>
-							<option value="Malayalam" >Malayalam</option>
-							<option value="Maltese" >Maltese</option>
-							<option value="Maori" >Maori</option>
-							<option value="Marathi" >Marathi</option>
-							<option value="Moldavian" >Moldavian</option>
-							<option value="Mongolian" >Mongolian</option>
-							<option value="Nauru" >Nauru</option>
-							<option value="Nepali" >Nepali</option>
-							<option value="Norwegian (Bokmal)" >Norwegian (Bokmal)</option>
-							<option value="Norwegian (Nynorsk)" >Norwegian (Nynorsk)</option>
-							<option value="Oriya" >Oriya</option>
-							<option value="Oromo" >Oromo</option>
-							<option value="Pashto/Pushto" >Pashto/Pushto</option>
-							<option value="Polish" >Polish</option>
-							<option value="Portuguese (Brazil)" >Portuguese (Brazil)</option>
-							<option value="Portuguese" >Portuguese (Portugal)</option>
-							<option value="Punjabi" >Punjabi</option>
-							<option value="Quechua" >Quechua</option>
-							<option value="Rhaeto-Romance" >Rhaeto-Romance</option>
-							<option value="Romanian" >Romanian</option>
-							<option value="Russian" >Russian</option>
-							<option value="Samoan" >Samoan</option>
-							<option value="Sangho" >Sangho</option>
-							<option value="Sanskrit" >Sanskrit</option>
-							<option value="Scots Gaelic" >Scots Gaelic</option>
-							<option value="Serbian" >Serbian</option>
-							<option value="Serbo-Croatian" >Serbo-Croatian</option>
-							<option value="Sesotho" >Sesotho</option>
-							<option value="Setswana" >Setswana</option>
-							<option value="Shona" >Shona</option>
-							<option value="Sindhi" >Sindhi</option>
-							<option value="Sinhalese" >Sinhalese</option>
-							<option value="Siswati" >Siswati</option>
-							<option value="Slovak" >Slovak</option>
-							<option value="Slovenian" >Slovenian</option>
-							<option value="Somali" >Somali</option>
-							<option value="Spanish" >Spanish</option>
-							<option value="Sundanese" >Sundanese</option>
-							<option value="Swahili" >Swahili</option>
-							<option value="Swedish" >Swedish</option>
-							<option value="Tagalog" >Tagalog</option>
-							<option value="Tajik" >Tajik</option>
-							<option value="Tamil" >Tamil</option>
-							<option value="Tatar" >Tatar</option>
-							<option value="Telugu" >Telugu</option>
-							<option value="Thai" >Thai</option>
-							<option value="Tibetan" >Tibetan</option>
-							<option value="Tigrinya" >Tigrinya</option>
-							<option value="Tonga" >Tonga</option>
-							<option value="Tsonga" >Tsonga</option>
-							<option value="Turkish" >Turkish</option>
-							<option value="Turkmen" >Turkmen</option>
-							<option value="Twi" >Twi</option>
-							<option value="Uighur" >Uighur</option>
-							<option value="Ukrainian" >Ukrainian</option>
-							<option value="Urdu" >Urdu</option>
-							<option value="Uzbek" >Uzbek</option>
-							<option value="Vietnamese" >Vietnamese</option>
-							<option value="Volapuk" >Volapuk</option>
-							<option value="Welsh" >Welsh</option>
-							<option value="Wolof" >Wolof</option>
-							<option value="Xhosa" >Xhosa</option>
-							<option value="Yiddish" >Yiddish</option>
-							<option value="Yiddish" >Yiddish</option>
-							<option value="Zhuang" >Zhuang</option>
-							<option value="Zulu" >Zulu</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Country of Origin*:</label>
-					<div class="col-sm-10">
-						<select  class="form-control" name="selCountry">
-							<option value=""></option>
-							<option value="Afghanistan"  >Afghanistan</option>
-							<option value="Albania"  >Albania</option>
-							<option value="Algeria"  >Algeria</option>
-							<option value="American Samoa"  >American Samoa</option>
-							<option value="Andorra"  >Andorra</option>
-							<option value="Angola"  >Angola</option>
-							<option value="Anguilla"  >Anguilla</option>
-							<option value="Antarctica"  >Antarctica</option>
-							<option value="Antigua"  >Antigua</option>
-							<option value="Argentina"  >Argentina</option>
-							<option value="Armenia"  >Armenia</option>
-							<option value="Aruba"  >Aruba</option>
-							<option value="Ascension Island"  >Ascension Island</option>
-							<option value="Australia"  >Australia</option>
-							<option value="Austria"  >Austria</option>
-							<option value="Azerbaijan"  >Azerbaijan</option>
-							<option value="Bahamas"  >Bahamas</option>
-							<option value="Bangladesh"  >Bangladesh</option>
-							<option value="Barbados"  >Barbados</option>
-							<option value="Barbuda"  >Barbuda</option>
-							<option value="Belarus"  >Belarus</option>
-							<option value="Belgium"  >Belgium</option>
-							<option value="Belize"  >Belize</option>
-							<option value="Benin"  >Benin</option>
-							<option value="Bermuda"  >Bermuda</option>
-							<option value="Bhutan"  >Bhutan</option>
-							<option value="Bolivia"  >Bolivia</option>
-							<option value="Bosnia and Herzegowina"  >Bosnia and Herzegowina</option>
-							<option value="Botswana"  >Botswana</option>
-							<option value="Brazil"  >Brazil</option>
-							<option value="British Virgin Islands"  >British Virgin Islands</option>
-							<option value="Brunei Darussalam"  >Brunei Darussalam</option>
-							<option value="Bulgaria"  >Bulgaria</option>
-							<option value="Burkina Faso"  >Burkina Faso</option>
-							<option value="Burundi"  >Burundi</option>
-							<option value="Cambodia"  >Cambodia</option>
-							<option value="Cameroon"  >Cameroon</option>
-							<option value="Canada"  >Canada</option>
-							<option value="Cape Verde Islands"  >Cape Verde Islands</option>
-							<option value="Cayman Islands"  >Cayman Islands</option>
-							<option value="Central African Republic"  >Central African Republic</option>
-							<option value="Chad"  >Chad</option>
-							<option value="Chatham Island"  >Chatham Island</option>
-							<option value="Chile"  >Chile</option>
-							<option value="China" selected >China</option>
-							<option value="Christmas Island"  >Christmas Island</option>
-							<option value="Cocos-Keeling Islands"  >Cocos-Keeling Islands</option>
-							<option value="Colombia"  >Colombia</option>
-							<option value="Comoros"  >Comoros</option>
-							<option value="Congo"  >Congo</option>
-							<option value="Cook Islands"  >Cook Islands</option>
-							<option value="Costa Rica"  >Costa Rica</option>
-							<option value="Cuba"  >Cuba</option>
-							<option value="Croatia"  >Croatia</option>
-							<option value="Curacao"  >Curacao</option>
-							<option value="Cyprus"  >Cyprus</option>
-							<option value="Czech Republic"  >Czech Republic</option>
-							<option value="Denmark"  >Denmark</option>
-							<option value="Diego Garcia"  >Diego Garcia</option>
-							<option value="Dominica"  >Dominica</option>
-							<option value="Dominican Republic"  >Dominican Republic</option>
-							<option value="D'Jibouti"  >D'Jibouti</option>
-							<option value="Easter Island"  >Easter Island</option>
-							<option value="Ecuador"  >Ecuador</option>
-							<option value="Egypt"  >Egypt</option>
-							<option value="El Salvador"  >El Salvador</option>
-							<option value="Equatorial Guinea"  >Equatorial Guinea</option>
-							<option value="Eritrea"  >Eritrea</option>
-							<option value="Estonia"  >Estonia</option>
-							<option value="Ethiopia"  >Ethiopia</option>
-							<option value="Faroe Islands"  >Faroe Islands</option>
-							<option value="Falkland Islands"  >Falkland Islands</option>
-							<option value="Fiji Islands"  >Fiji Islands</option>
-							<option value="Finland"  >Finland</option>
-							<option value="France"  >France</option>
-							<option value="French Antilles"  >French Antilles</option>
-							<option value="French Giuana"  >French Giuana</option>
-							<option value="French Polynesia"  >French Polynesia</option>
-							<option value="Gabon"  >Gabon</option>
-							<option value="Gambia"  >Gambia</option>
-							<option value="Georgia"  >Georgia</option>
-							<option value="Germany"  >Germany</option>
-							<option value="Ghana"  >Ghana</option>
-							<option value="Gibraltar"  >Gibraltar</option>
-							<option value="Greece"  >Greece</option>
-							<option value="Greenland"  >Greenland</option>
-							<option value="Grenada"  >Grenada</option>
-							<option value="Grenadine Islands"  >Grenadine Islands</option>
-							<option value="Guadalupe"  >Guadalupe</option>
-							<option value="Guam"  >Guam</option>
-							<option value="Guantanamo Bay (Cuba)"  >Guantanamo Bay (Cuba)</option>
-							<option value="Guatemala"  >Guatemala</option>
-							<option value="Guinea"  >Guinea</option>
-							<option value="Guinea-Bissau"  >Guinea-Bissau</option>
-							<option value="Guyana"  >Guyana</option>
-							<option value="Haiti"  >Haiti</option>
-							<option value="Honduras"  >Honduras</option>
-							<option value="Hong Kong"  >Hong Kong</option>
-							<option value="Hungary"  >Hungary</option>
-							<option value="Iceland"  >Iceland</option>
-							<option value="India"  >India</option>
-							<option value="Indonesia"  >Indonesia</option>
-							<option value="Iran"  >Iran</option>
-							<option value="Iraq"  >Iraq</option>
-							<option value="Ireland"  >Ireland</option>
-							<option value="Israel"  >Israel</option>
-							<option value="Italy"  >Italy</option>
-							<option value="Ivory Coast"  >Ivory Coast</option>
-							<option value="Jamaica"  >Jamaica</option>
-							<option value="Japan"  >Japan</option>
-							<option value="Jordan"  >Jordan</option>
-							<option value="Kazakhstan"  >Kazakhstan</option>
-							<option value="Kenya"  >Kenya</option>
-							<option value="Kiribati"  >Kiribati</option>
-							<option value="Korea (Republic of)"  >Korea (Republic of)</option>
-							<option value="Kuwait"  >Kuwait</option>
-							<option value="Kyrgyz Republic"  >Kyrgyz Republic</option>
-							<option value="Laos"  >Laos</option>
-							<option value="Latvia"  >Latvia</option>
-							<option value="Lebanon"  >Lebanon</option>
-							<option value="Lesotho"  >Lesotho</option>
-							<option value="Liberia"  >Liberia</option>
-							<option value="Libya"  >Libya</option>
-							<option value="Liechtenstein"  >Liechtenstein</option>
-							<option value="Lithuania"  >Lithuania</option>
-							<option value="Luxembourg"  >Luxembourg</option>
-							<option value="Macau"  >Macau</option>
-							<option value="Macedonia"  >Macedonia</option>
-							<option value="Madagascar"  >Madagascar</option>
-							<option value="Malawi"  >Malawi</option>
-							<option value="Malaysia"  >Malaysia</option>
-							<option value="Maldives"  >Maldives</option>
-							<option value="Mali"  >Mali</option>
-							<option value="Malta"  >Malta</option>
-							<option value="Marshall Islands"  >Marshall Islands</option>
-							<option value="Martinique"  >Martinique</option>
-							<option value="Mauritania"  >Mauritania</option>
-							<option value="Mauritus"  >Mauritus</option>
-							<option value="Mayotte Island"  >Mayotte Island</option>
-							<option value="Mexico"  >Mexico</option>
-							<option value="Micronesia"  >Micronesia</option>
-							<option value="Midway Island"  >Midway Island</option>
-							<option value="Moldova (Republic of)"  >Moldova (Republic of)</option>
-							<option value="Monaco"  >Monaco</option>
-							<option value="Mongolia"  >Mongolia</option>
-							<option value="Montserat"  >Montserat</option>
-							<option value="Morocco"  >Morocco</option>
-							<option value="Mozambique"  >Mozambique</option>
-							<option value="Myanmar"  >Myanmar</option>
-							<option value="Namibia"  >Namibia</option>
-							<option value="Nauru"  >Nauru</option>
-							<option value="Nepal"  >Nepal</option>
-							<option value="Netherlands"  >Netherlands</option>
-							<option value="Netherlands Antilles"  >Netherlands Antilles</option>
-							<option value="Nevis"  >Nevis</option>
-							<option value="New Caledonia"  >New Caledonia</option>
-							<option value="New Zealand"  >New Zealand</option>
-							<option value="Nicaragua"  >Nicaragua</option>
-							<option value="Niger"  >Niger</option>
-							<option value="Nigeria"  >Nigeria</option>
-							<option value="Niue"  >Niue</option>
-							<option value="Norfolk Island"  >Norfolk Island</option>
-							<option value="Northern Marianas Islands"  >Northern Marianas Islands</option>
-							<option value="Norway"  >Norway</option>
-							<option value="Oman"  >Oman</option>
-							<option value="Pakistan"  >Pakistan</option>
-							<option value="Palau"  >Palau</option>
-							<option value="Palestine"  >Palestine</option>
-							<option value="Panama"  >Panama</option>
-							<option value="Papua New Guinea"  >Papua New Guinea</option>
-							<option value="Paraguay"  >Paraguay</option>
-							<option value="Peru"  >Peru</option>
-							<option value="Philippines"  >Philippines</option>
-							<option value="Poland"  >Poland</option>
-							<option value="Portugal"  >Portugal</option>
-							<option value="Puerto Rico"  >Puerto Rico</option>
-							<option value="Qatar"  >Qatar</option>
-							<option value="Réunion Island"  >Réunion Island</option>
-							<option value="Romania"  >Romania</option>
-							<option value="Russian Federation"  >Russian Federation</option>
-							<option value="Rwanda"  >Rwanda</option>
-							<option value="San Marino"  >San Marino</option>
-							<option value="Sao Tome and Principe"  >Sao Tome and Principe</option>
-							<option value="Saudi Arabia"  >Saudi Arabia</option>
-							<option value="Senegal"  >Senegal</option>
-							<option value="Serbia"  >Serbia</option>
-							<option value="Seychelles"  >Seychelles</option>
-							<option value="Sierra Leone"  >Sierra Leone</option>
-							<option value="Singapore"  >Singapore</option>
-							<option value="Slovakia"  >Slovakia</option>
-							<option value="Slovenia"  >Slovenia</option>
-							<option value="Solomon Islands"  >Solomon Islands</option>
-							<option value="Somalia"  >Somalia</option>
-							<option value="South Africa"  >South Africa</option>
-							<option value="Spain"  >Spain</option>
-							<option value="Sri Lanka"  >Sri Lanka</option>
-							<option value="St. Helena"  >St. Helena</option>
-							<option value="St. Kitts"  >St. Kitts</option>
-							<option value="St. Lucia"  >St. Lucia</option>
-							<option value="St. Pierre et Miquelon"  >St. Pierre et Miquelon</option>
-							<option value="Sudan"  >Sudan</option>
-							<option value="Suriname"  >Suriname</option>
-							<option value="Swaziland"  >Swaziland</option>
-							<option value="Sweden"  >Sweden</option>
-							<option value="Switzerland"  >Switzerland</option>
-							<option value="Syria"  >Syria</option>
-							<option value="Tahiti"  >Tahiti</option>
-							<option value="Taiwan"  >Taiwan</option>
-							<option value="Tajikistan"  >Tajikistan</option>
-							<option value="Tanzania"  >Tanzania</option>
-							<option value="Thailand"  >Thailand</option>
-							<option value="Timor-Leste"  >Timor-Leste</option>
-							<option value="Togo"  >Togo</option>
-							<option value="Tokelau Islands"  >Tokelau Islands</option>
-							<option value="Tonga Islands"  >Tonga Islands</option>
-							<option value="Trinidad and Tobago"  >Trinidad and Tobago</option>
-							<option value="Tunisia"  >Tunisia</option>
-							<option value="Turkey"  >Turkey</option>
-							<option value="Turkmenistan"  >Turkmenistan</option>
-							<option value="Turks and Caicos Islands"  >Turks and Caicos Islands</option>
-							<option value="Tuvalu"  >Tuvalu</option>
-							<option value="Uganda"  >Uganda</option>
-							<option value="Ukraine"  >Ukraine</option>
-							<option value="United Arab Emirates"  >United Arab Emirates</option>
-							<option value="United Kingdom"  >United Kingdom</option>
-							<option value="United States"  >United States</option>
-							<option value="Uruguay"  >Uruguay</option>
-							<option value="US Virgin Islands"  >US Virgin Islands</option>
-							<option value="Uzbekistan"  >Uzbekistan</option>
-							<option value="Vanuatu"  >Vanuatu</option>
-							<option value="Vatican City"  >Vatican City</option>
-							<option value="Venezuela"  >Venezuela</option>
-							<option value="Vietnam"  >Vietnam</option>
-							<option value="Wake Island"  >Wake Island</option>
-							<option value="Wallis and Futuna Islands"  >Wallis and Futuna Islands</option>
-							<option value="Western Samoa"  >Western Samoa</option>
-							<option value="Yemen-Arab Republic"  >Yemen-Arab Republic</option>
-							<option value="Zambia"  >Zambia</option>
-							<option value="Zanzibar"  >Zanzibar</option>
-							<option value="Zimbawe"  >Zimbawe</option>
-						</select>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Educational Backgound: </label>
-					<div class="col-sm-10">
-						<table class="table mbn">
-							<tr>
-								<td><input type="Checkbox" id="ckbHSC" name="ckbHSC" value="1" onClick="toggle('ckbHSC', 'txtHSC_mark')"  />
-									HSC</td>
-								<td id="txtHSC_mark"><div class="none">Mark
-										<input type="Text" class="form-control"  name="txtHSC_mark" value="" size="5" />
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbIELTS" name="ckbIELTS" value="1" onClick="toggle('ckbIELTS', 'txtIELTS_mark')"   />
-									IELTS</td>
-								<td id="txtIELTS_mark" ><div class="none">Mark
-										<input type="Text" class="form-control" name="txtIELTS_mark" value="" size="5"/>
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbTOEFL" name="ckbTOEFL" value="1" onClick="toggle('ckbTOEFL', 'txtTOEFL_mark')"   />
-									TOEFL</td>
-								<td id="txtTOEFL_mark"><div class="none">Mark
-										<input type="Text" class="form-control" name="txtTOEFL_mark" value="" size="5" />
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbTAFE" name="ckbTAFE" value="1" onClick="toggle('ckbTAFE', 'txtTAFE_mark')"   />
-									TAFE</td>
-								<td id="txtTAFE_mark"><div class="none">Mark
-										<input type="Text" class="form-control" name="txtTAFE_mark" value="" size="5" />
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbCULT" name="ckbCULT" value="1" onClick="toggle('ckbCULT', 'txtCULT_mark')"  />
-									CULT</td>
-								<td id="txtCULT_mark"><div class="none">Mark
-										<input type="Text" class="form-control" name="txtCULT_mark" value="" size="5" />
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbInsearchDEEP" name="ckbInsearchDEEP" value="1" onClick="toggle('ckbInsearchDEEP', 'txtInsearchDEEP_mark')" checked />
-									Insearch DEEP</td>
-								<td id="txtInsearchDEEP_mark" ><div class="form-inline">
-										<lable for="txtInsearchDEEP_mark">Mark</lable>
-										<input type="Text" class="form-control" name="txtInsearchDEEP_mark" value="P" size="5" />
-									</div></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbInsearchDiploma" name="ckbInsearchDiploma" value="1" onClick="toggle('ckbInsearchDiploma', 'txtInsearchDiploma_mark')"   />
-									Insearch Diploma</td>
-								<td id="txtInsearchDiploma_mark"><div class="none">
-									Mark
-									<input type="Text" class="form-control" name="txtInsearchDiploma_mark" value="" size="5" /></td>
-							</tr>
-							<tr>
-								<td><input type="Checkbox" id="ckbfoundationcourse" name="ckbfoundationcourse" value="1" onClick="toggle('ckbfoundationcourse', 'txtfoundationcourse_mark')"   />
-									Foundation Course</td>
-								<td id="txtfoundationcourse_mark"><div class="none">
-									Mark
-									<input type="Text" class="form-control" name="txtfoundationcourse_mark" value="" size="5" /></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail3" class="col-sm-2 control-label"> Other:</label>
-					<div class="col-sm-10">
-						<textarea name="txtBackground" cols="40" rows="5" wrap="soft" class="form-control"></textarea>
-					</div>
-				</div>
-				<input type="Submit" name="btnUpdate" value="Update" id="btnUpdate" class="btn btn-primary btn-block"/>
-			</form>
+<div class="program" id="student_helps_programs">
+    <h2> Drop-in consultations</h2>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> At the initial stage of your assignment writing or preparation process, you are strongly encouraged to come and see HELPS. The best time to see us is when you first receive your assignment.</p>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> <strong style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; color: rgb(0, 0, 0);">HELPS Advisors can help edit your assignment WITH you, not FOR you</strong>&nbsp;- helping you to edit for:</p>
+    <ul style="margin: 0px 0px 15px 30px; padding-right: 0px; padding-left: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; list-style-position: outside; color: rgb(37, 43, 43);">
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> Structure and argument &ndash; that your writing is logically organised with well-developed and well-supported arguments.</li>
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> Style and expression &ndash; that your choice of vocabulary is appropriate, sentences are well constructed, ideas are clearly introduced, and paragraphs are fully developed.</li>
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> Grammar &ndash; that your issues are identified and explained so you can learn from your mistakes and avoid making them in the future.</li>
+    </ul>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> Proofreading is the final step in the editing process, with the aim of producing an error-free assignment. It is&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; color: rgb(0, 0, 0);">your</strong>&nbsp;responsibility to check for mistakes in spelling, punctuation, typing and formatting in your assignment before you submit it to your lecturer.</p>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> We offer 15-minute drop-in advice sessions and 40-minute one-to-one consultations by referral to help you with your assignment writing and preparation.</p>
+    <h3> Drop-in consultations are held at:</h3>
+    <ul>
+        <li>
+            <h4 style="margin: 14px 0px 0.714em; padding: 0px; border: 0px; font-family: 'DIN Bold'; font-size: 1.143em; font-weight: normal; font-stretch: inherit; line-height: 1em; vertical-align: baseline; -webkit-font-smoothing: antialiased; color: rgb(37, 43, 43);"> 2015 Spring semester (from week 2 to week 14)</h4>
+            <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> <em style="margin: 0px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; color: rgb(0, 0, 0);">Not offered on Public Holidays</em></p>
+            <ul style="margin: 0px 0px 15px 30px; padding-right: 0px; padding-left: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; list-style-position: outside; color: rgb(37, 43, 43);">
+                <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;">
+                    HELPS office (CB01.03.08)
+                    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"> Monday to Thursday: 12noon - 6pm / Friday: 12noon - 5pm</p>
+                </li>
+            </ul>
+            <ul style="margin: 0px 0px 15px 30px; padding-right: 0px; padding-left: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; list-style-position: outside; color: rgb(37, 43, 43);">
+                <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;">
+                    UTS Blake Library (Research helpdesk)
+                    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"> Tuesday to Thursday: 4pm - 7pm / Saturday: 1pm - 4pm</p>
+                </li>
+            </ul>
+            <ul style="margin: 0px 0px 15px 30px; padding-right: 0px; padding-left: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; list-style-position: outside; color: rgb(37, 43, 43);">
+                <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;">
+                    Kuring Gai Library
+                    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"> Tuesday and Thursday: 2pm - 5pm</p>
+                </li>
+            </ul>
+            <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> At the drop-in advice session we can, if you need it, book you in for a longer&nbsp;<a href="https://www.uts.edu.au/current-students/support/helps/assignment-writing-assistance/one-one-consultation-referral" style="font-weight: bold; color: rgb(0, 153, 204); text-decoration: none; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; -webkit-tap-highlight-color: rgb(0, 153, 204);">one-to-one consultation&nbsp;</a>closer to the due date for when you have your draft ready.</p>
+        </li>
+    </ul>
+    <h2> Individual assistance by referral</h2>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> After you have attended a&nbsp;<a href="https://www.uts.edu.au/current-students/support/helps/assignment-writing-assistance" style="font-weight: bold; color: rgb(0, 153, 204); text-decoration: none; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; -webkit-tap-highlight-color: rgb(0, 153, 204);">drop-in advice&nbsp;</a>session; if a longer consultation is required you may be able to book in for a 40-minute one-to-one consultation.</p>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> Having a one-to-one consultation is an opportunity for an in-depth discussion in relation to your specific needs on an assessment.</p>
+    <p style="margin: 0px 0px 1.3em; padding: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; color: rgb(37, 43, 43);"> A 40-minute one-to-one consultation may involve:</p>
+    <ul style="margin: 0px 0px 15px 30px; padding-right: 0px; padding-left: 0px; border: 0px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; font-stretch: inherit; line-height: 20px; vertical-align: baseline; list-style-position: outside; color: rgb(37, 43, 43);">
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> discussing your draft to ensure that you have addressed the assessment criteria</li>
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> addressing a number of grammar or referencing issues that require assistance</li>
+        <li style="margin: 0px 0px 10px; padding: 0px; border: 0px; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline; text-align: left;"> preparing for an oral presentation.</li>
+    </ul>
+    <h2> Daily workshops</h2>
+    <ul>
+        <li> <a _fcksavedurl="#study_reading" href="http://www.uts.edu.au/current-students/support/helps/daily-workshops/study-reading-skills-workshops" target="_blank">Study and reading skills</a></li>
+        <li> <a _fcksavedurl="#writing" href="http://www.uts.edu.au/current-students/support/helps/daily-workshops/writing-skills-workshops" target="_blank">Writing skills</a></li>
+        <li> <a _fcksavedurl="#presentation_speaking" href="http://www.uts.edu.au/current-students/support/helps/daily-workshops/presentation-speaking-skills" target="_blank">Presentation and speaking skills</a></li>
+    </ul>
+    <p> You will need to register for these workshops as places are limited. To <em><strong>register</strong></em>, click on the <strong>workshop registration tab </strong>and follow the instructions. If you wish your cancel your registration, please do so online or contact us via email. Failing to turn up for your registered workshops are not fair to those on the waiting lists. Repeat offenders may be barred from attending workshops for the rest of the semester.</p>
+    <h3>&nbsp; </h3>
+    <div> </div>
+
+    <!-- Footer -->
+    <div id="footer-wrapper">
+        <div class="footer-navigation"> <a href="index.cfm?scope=profile">My Information</a> <a href="index.cfm?scope=newsession">My bookings</a> <a href="index.cfm?scope=workshop">Workshop registration</a> <a href="index.cfm?scope=Program" class="CurrentScope">Programs</a> <a href="index.cfm?scope=help">FAQ</a> <a href="index.cfm?scope=logout">Exit</a> </div>
+        <div id="footer-nav"></div>
+        <div id="global-footer">
+            <div id="footer-img">
+                <a href="http://www.uts.edu.au/"> <img src="https://web-common.uts.edu.au/images/uts_logo_footer.gif" alt="UTS homepage" width="130" height="29" /></a> <br />
+                <a href="http://www.atn.edu.au">
+                    UTS is a member of the<br />
+                    Australian Technology Network of Universities
+                </a>
+            </div>
+            <div id="footer-text">
+                <div class="primary-links"> <a href="http://email.itd.uts.edu.au/webapps/directory/byname/">Staff directory</a> <img src="https://web-common.uts.edu.au/images/separator.gif" alt="" width="4" height="6" /> <a href="http://www.uts.edu.au/about/mapsdirections/">Campus maps</a> <img src="https://web-common.uts.edu.au/images/separator.gif" alt="" width="4" height="6" /> <a href="http://www.newsroom.uts.edu.au/">Newsroom</a> <img src="https://web-common.uts.edu.au/images/separator.gif" alt="" width="4" height="6" /> <a href="http://www.events.uts.edu.au/web/">What's on</a> </div>
+                &copy; Copyright UTS - CRICOS Provider No: 00099F - 27 November 2008 10:34 AM<br />
+                The page is authorised by Director, SSU -
+                Send comments to <a href="mailto:sang-eun.oh@uts.edu.au">operations manager</a><br />
+                <a href="http://www.uts.edu.au/disclaimer.html">Disclaimer</a> | <a href="http://www.uts.edu.au/privacy.html">Privacy</a> | <a href="http://www.uts.edu.au/copyright.html">Copyright</a> | <a href="http://www.uts.edu.au/accessibility.html">Accessibility</a> | <a href="http://www.gsu.uts.edu.au/policies/webpolicy.html">Web policy</a> | <a href="http://www.uts.edu.au/">UTS homepage</a>
+            </div>
+        </div>
+    </div>
+</div>

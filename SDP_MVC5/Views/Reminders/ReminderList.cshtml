@@ -4,6 +4,7 @@
     ViewBag.Title = "My Reminder";
 }
 
+
 <h2>My Reminder</h2>
 
 <p class="none">
@@ -12,7 +13,7 @@
 <div class="list-group">
     @foreach (var item in Model)
     {
-        @Html.ActionLink("[" + item.remindertime.ToString().Substring(0,10) + "] " + item.workshopName , "Details",
+        @Html.ActionLink("[" + item.remindertime.ToString().Substring(0, 10) + "] " + item.workshopName, "Details",
     new { id = item.ID },
     new { @class = "list-group-item" })
     }
@@ -38,27 +39,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.workshopID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.studentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.remindertime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.workshopID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.studentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createdtime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remindertime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
 
 </table>
 
