@@ -312,6 +312,7 @@
     <Content Include="Views\Home\_WorkshopListModal.cshtml" />
     <Content Include="Views\Reminders\ReminderList.cshtml" />
     <Content Include="Views\Shared\_alterReminder.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -57,6 +57,7 @@
             
             <div class="container">
                 <h1 class="none">@(Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host)</h1>
+                <h1>@Session["reminders"]</h1>
                 @Html.Partial("_alterReminder")
                 @RenderBody()
             </div>

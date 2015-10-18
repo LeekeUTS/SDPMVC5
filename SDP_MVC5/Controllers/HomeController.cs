@@ -30,6 +30,10 @@ namespace SDP_MVC5.Controllers
         {
             return View();
         }
+        public ActionResult Search()
+        {
+            return View();
+        }
         public ActionResult Program()
         {
             return View();
@@ -40,20 +44,10 @@ namespace SDP_MVC5.Controllers
         }
         public ActionResult WorkshopList(int id)
         {
-            //todo: if id=nll then error
+            //todo: if id=null then error
             return View(id);
         }
         public ActionResult Signup()
-        {
-            return View();
-        }
-
-        public ActionResult Json_SessionBookingSearch()
-        {
-            return View();
-        }
-
-        public ActionResult Json_SessionType()
         {
             return View();
         }

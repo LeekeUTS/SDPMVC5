@@ -79,11 +79,16 @@ namespace SDP_MVC5.Controllers
             //read database
             //get count
             //set count
-            Session["remiders"] = "3";
+            SDP_MVC5.Models.StudentContext db = new StudentContext();
+           
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    {
+                        int studentID = int.Parse(model.Email.ToString().Substring(0, 8));
+                        Session["reminders"] = db.Reminder.Where(x => x.studentID == studentID && x.remindertime <= DateTime.Today).Count();
+                        return RedirectToLocal(returnUrl);
+                    }
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

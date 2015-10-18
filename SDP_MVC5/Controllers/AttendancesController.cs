@@ -35,6 +35,9 @@ namespace SDP_MVC5.Controllers
             return View(attendance);
         }
 
+        //route Create/workshopID/bookingID/workshopName
+        //[Route(new(workshopID=1, "bookingID", "workshopName",)]
+        
         public ActionResult Create(int workshopID, int bookingID, string workshopName)
         {
             Attendance attendence = new Attendance();
@@ -45,6 +48,19 @@ namespace SDP_MVC5.Controllers
             attendence.bookingID = bookingID;
             attendence.workshopID = workshopID;
             return View(attendence);
+        }
+
+        [Route("Attendances/{workshopID:int}/{bookingID:int}/{workshopName}")]
+        public ActionResult Create2(int workshopID, int bookingID, string workshopName)
+        {
+            Attendance attendence = new Attendance();
+            attendence.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+            attendence.workshopName = workshopName;
+            attendence.createdtime = DateTime.Today;
+            attendence.attendancetime = DateTime.Now;
+            attendence.bookingID = bookingID;
+            attendence.workshopID = workshopID;
+            return View("Create",attendence);
         }
 
         // POST: Attendance/Create
