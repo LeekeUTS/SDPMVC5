@@ -151,7 +151,7 @@ namespace SDP_MVC5.Controllers
             return View();
         }
 
-        //
+        //Todo: loading icon
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]

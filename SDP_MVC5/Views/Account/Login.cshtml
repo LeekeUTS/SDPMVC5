@@ -4,62 +4,96 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Hit: Use your student Email (studentID@@student.uts.edu.au) to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+<div class="container">
+    <div id="" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Log In</div>
+            </div>
+            <div class="panel-body ptm">
+
+                @*<section id="loginForm">*@
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label for="StudentID">StudentID</label>
+                        <div class="input-group" data-validate="number">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" placeholder="Number Only" required="required" id="StudentID" name="StudentID" type="text" value="" />
+                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-asterisk"></span></span>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default sizeFull" />
+
+                    <div class="form-group none">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.ActionLink("Register as a new user", "Register", "Account", new { @class = "btn btn-warning sizeFull" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Required", required = "required" })
+                            <span class="input-group-addon danger"><span class="glyphicon glyphicon-asterisk"></span></span>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    <div class="col-md-4 none">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <input type="button" value="Log in" class="btn btn-default sizeFull" id="login_submit" />
+                            <input type="submit" value="Log in" class="btn btn-default sizeFull none" id="f_login" />
+                            @Html.ActionLink("Register as a new user", "Register", "Account", new { @class = "btn btn-warning sizeFull mtm" })
+                    </div>
+                    
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+                <p>
+                    @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                </p>*@
+                }
+                @*</section>*@
+            </div>
+        </div>
     </div>
 </div>
-
+<script>
+    $("#login_submit").click(function () {
+        api_login($.trim($("#StudentID").val()));
+    });
+    $.ajaxSetup
+    ({
+        beforeSend: function (request) {
+            request.setRequestHeader("AppKey", "123456");
+        },
+        contentType: "application/json"
+    });
+    function api_login(username) {
+        var EmailVal=username + "@@student.uts.edu.au"
+        $("#Email").val(EmailVal);
+        $("#f_login").click();
+        //var url = JsonUrl + "api/student?id=" + username;
+        //var params = {};
+        //$.get(url, params, function (data) {
+        //    json = data.Student
+        //    if (json == null) {
+        //        alert("Sorry, we can't find your student ID in the database, make sure you enter the right student ID");
+        //    } else {
+               
+        //    }
+        //});
+    }
+</script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

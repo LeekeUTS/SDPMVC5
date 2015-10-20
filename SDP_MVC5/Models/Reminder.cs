@@ -13,6 +13,7 @@ namespace SDP_MVC5.Models
         public int bookingID { get; set; }
         [Required]
         public int studentID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name="Created Date")]
         [Required]
         [DataType(DataType.Date)]

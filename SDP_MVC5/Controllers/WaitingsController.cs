@@ -10,6 +10,7 @@ using SDP_MVC5.Models;
 
 namespace SDP_MVC5.Controllers
 {
+    [Authorize]
     public class WaitingsController : Controller
     {
         private StudentContext db = new StudentContext();
@@ -17,7 +18,7 @@ namespace SDP_MVC5.Controllers
         // GET: Waitings
         public ActionResult Index()
         {
-            return View(db.Waitings.ToList());
+            return View(db.Waitings.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
         }
 
         // GET: Waitings/Details/5

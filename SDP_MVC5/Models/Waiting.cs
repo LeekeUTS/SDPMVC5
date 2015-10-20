@@ -14,6 +14,7 @@ namespace SDP_MVC5.Models
         [Display(Name = "Created Date")]
         [Required]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime createdtime { get; set; }
         [Required]
         [Display(Name = "Workshop Name")]

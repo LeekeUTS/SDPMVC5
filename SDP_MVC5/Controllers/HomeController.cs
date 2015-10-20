@@ -44,7 +44,7 @@ namespace SDP_MVC5.Controllers
         }
         public ActionResult WorkshopList(int id)
         {
-            //todo: if id=null then error
+            //Todo: if id=null then error
             return View(id);
         }
         public ActionResult Signup()

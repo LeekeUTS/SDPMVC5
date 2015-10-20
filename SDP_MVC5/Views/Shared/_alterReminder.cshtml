@@ -1,7 +1,7 @@
-﻿@if (Session["remiders"]!=null)
+﻿@if (Session["reminders"] != null)
 {
     <div class="alert alert-warning mtl">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <a href="~/Reminders/ReminderList">You have <strong class="f_reminderCount">@Session["remiders"]</strong> reminders.</a>
+        <a href="~/Reminders/ReminderList">You have <strong>@Session["reminders"]</strong> reminders.</a>
     </div>
 }

@@ -1,4 +1,4 @@
-JsonUrl = "http://localhost:8080/WebDeploy/";
+
 //JsonUrl = "http://utsdp.cloudapp.net/WebDeploy/";
 
 $.ajaxSetup({

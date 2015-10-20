@@ -8,14 +8,26 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/extra")
+    @{
+        var siteURL = Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host;
+        if (siteURL == "http://localhost")
+        {
+            siteURL = "http://localhost" + ":8080";
+        }
+    }
+    <script>
+        JsonUrl ="@siteURL/WebDeploy/";
+    </script>
     @if (Request.IsAuthenticated)
     {
     <script>
         studentID=@User.Identity.Name.ToString().Substring(0, 8);
+        
     </script>
     }
 </head>
 <body>
+
     <div id="wrapper">
         <!-- inc_nav -->
         <div class="overlay"></div>
@@ -56,8 +68,6 @@
             </nav>
             
             <div class="container">
-                <h1 class="none">@(Request.Url.Scheme + System.Uri.SchemeDelimiter + Request.Url.Host)</h1>
-                <h1>@Session["reminders"]</h1>
                 @Html.Partial("_alterReminder")
                 @RenderBody()
             </div>

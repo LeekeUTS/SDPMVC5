@@ -10,6 +10,7 @@ using SDP_MVC5.Models;
 
 namespace SDP_MVC5.Controllers
 {
+    [Authorize]
     public class AttendancesController : Controller
     {
         private StudentContext db = new StudentContext();
@@ -100,7 +101,7 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,workshopID,studentID,createdtime,attendancetime,passCode")] Attendance attendance)
+        public ActionResult Edit([Bind(Include = "ID,workshopID,bookingID,studentID,createdtime,attendancetime,passCode,workshopName")] Attendance attendance)
         {
             if (ModelState.IsValid)
             {

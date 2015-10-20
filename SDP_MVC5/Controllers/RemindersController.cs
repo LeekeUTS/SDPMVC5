@@ -10,6 +10,7 @@ using SDP_MVC5.Models;
 
 namespace SDP_MVC5.Controllers
 {
+    [Authorize]
     public class RemindersController : Controller
     {
         private StudentContext db = new StudentContext();
@@ -20,7 +21,8 @@ namespace SDP_MVC5.Controllers
             //CustomModel.RemiderNumber = Session["remiders"];
             //CustomModel.Remiders = db.Reminder.ToList();
             //return View(CustomModel);
-            return View(db.Reminder.ToList());
+            //return View(db.Attendence.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
+            return View(db.Reminder.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
         }
 
         public ActionResult ReminderList()
