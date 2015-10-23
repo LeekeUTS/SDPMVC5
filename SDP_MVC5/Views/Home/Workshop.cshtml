@@ -11,6 +11,10 @@
 
 @*<div class="loading none text_c mal"><button class="btn btn-lg btn-primary m-progress">Button</button></div>*@
 <!-- //todo: filter json -->
-<div class="list-group f_load" data-bind="foreach: ko_array">
-    <a href="workshopList/{id}" class="list-group-item" data-bind="text: name, attr:{ href: 'workshopList/'+id }"></a>
-</div>
+<ul class="list-group f_load" data-bind="foreach: ko_array">
+    <li class="list-group-item">
+        <a href="workshopList/{id}" data-bind="text: name, attr:{
+    href: 'workshopList/'+id ,
+    'data-workshopid': id}"></a>
+    </li>
+</ul>

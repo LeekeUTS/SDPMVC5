@@ -105,6 +105,7 @@ function api_ajax(getUrl, getAfter) {
             ko.applyBindings({
                 ko_array: result.Results
             });
+            
             $('ul.f_load li').not(function (i) {
                 return $(this).prevAll('li:has(a[data-workshopid="' + $('a', this).attr('data-workshopid') + '"])').length < 1;
             }).remove();
