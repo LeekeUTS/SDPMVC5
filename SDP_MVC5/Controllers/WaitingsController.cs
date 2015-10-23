@@ -20,7 +20,9 @@ namespace SDP_MVC5.Controllers
         {
             return View(db.Waitings.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
         }
-
+        // Todo: error message
+        // Log out: absord session
+        // Anti-repeat: 
         // GET: Waitings/Details/5
         public ActionResult Details(int? id)
         {

@@ -400,6 +400,7 @@ namespace SDP_MVC5.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+            Session.Abandon();
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
         }

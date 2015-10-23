@@ -8,6 +8,10 @@
 
 -->
 <div class="container">
+    <div class="alert alert-warning none" id="f_regAlert">
+        It may take some time to vierty if the studentID your giving is available. Please waiting in patient.
+    </div>
+    <div class="f_loading none"></div>
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -75,10 +79,14 @@
     function api_reg(username) {
         var url = JsonUrl + "api/student?id=" + username;
         var params = {};
+        $("#f_regAlert").removeClass("none");
+        $(".f_loading").removeClass("none");
         $.get(url, params, function (data) {
             json = data.Student
             if (json == null) {
                 alert("Sorry, we can't find your student ID in the database, make sure you enter the right student ID");
+                $("#f_regAlert").addClass("none");
+                $(".f_loading").addClass("none");
             } else {
                 $("#Email").val(username + "@@student.uts.edu.au")
                 $("#reg_reg").click();

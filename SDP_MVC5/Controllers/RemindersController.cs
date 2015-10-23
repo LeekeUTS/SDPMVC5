@@ -18,10 +18,6 @@ namespace SDP_MVC5.Controllers
         // GET: Reminders
         public ActionResult Index()
         {
-            //CustomModel.RemiderNumber = Session["remiders"];
-            //CustomModel.Remiders = db.Reminder.ToList();
-            //return View(CustomModel);
-            //return View(db.Attendence.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
             return View(db.Reminder.Where(x => x.studentID.ToString() == User.Identity.Name.Substring(0, 8)).ToList());
         }
 
