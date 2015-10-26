@@ -47,7 +47,7 @@
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
-                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Exit</a></li>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Logout</a></li>
                 }
                 @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Exit</a></li>
                                <li class="none">@Html.ActionLink("Exit", "Login", "Demo")</li>
@@ -64,7 +64,7 @@
                 <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
                     <button type="button" class="hamburger is-closed" data-toggle="offcanvas" style="position:relative; top:auto; width:30px;"> <span class="hamb-top"></span> <span class="hamb-middle"></span> <span class="hamb-bottom"></span> </button>
                 </div>
-                <h3>Booking System</h3>
+                <h3>UTS Helping</h3>
             </nav>
             
             <div class="container">

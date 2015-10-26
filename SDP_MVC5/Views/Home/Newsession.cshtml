@@ -1,7 +1,7 @@
 ﻿@{
 ViewBag.Title = "Newsession";
 }
-<h2>Workshop sessions</h2>
+<h2>My Bookings</h2>
 <!-- // todo: studentid -->
 <script>
     api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=true&PageSize=1000")
@@ -51,11 +51,11 @@ ViewBag.Title = "Newsession";
                     <tr class="none"><th>workshopID:</th><td class="json-workshopID"></td></tr>
                     <tr class="none"><th>studentID:</th><td class="json-studentID"></td></tr>
                     <tr class="none"><th>topic:</th><td class="json-topic"></td></tr>
-                    <tr><th>description:</th><td class="json-description"></td></tr>
-                    <tr><th>targetingGroup:</th><td class="json-targetingGroup"></td></tr>
-                    <tr><th>campusID:</th><td class="json-campusID"></td></tr>
-                    <tr><th>starting:</th><td class="json-starting"></td></tr>
-                    <tr><th>ending:</th><td class="json-ending"></td></tr>
+                    <tr><th>Description:</th><td class="json-description"></td></tr>
+                    <tr><th>Targeting Group:</th><td class="json-targetingGroup"></td></tr>
+                    <tr><th>CampusID:</th><td class="json-campusID"></td></tr>
+                    <tr><th>Starting:</th><td class="json-starting"></td></tr>
+                    <tr><th>Ending:</th><td class="json-ending"></td></tr>
                     <tr class="none"><th>maximum:</th><td class="json-maximum"></td></tr>
                     <tr class="none"><th>cutoff:</th><td class="json-cutoff"></td></tr>
                     <tr class="none"><th>canceled:</th><td class="json-canceled"></td></tr>
@@ -65,7 +65,7 @@ ViewBag.Title = "Newsession";
                     <tr class="none"><th>reminder_num:</th><td class="json-reminder_num"></td></tr>
                     <tr class="none"><th>reminder_sent:</th><td class="json-reminder_sent"></td></tr>
                     <tr class="none"><th>WorkshopArchived:</th><td class="json-WorkshopArchived"></td></tr>
-                    <tr><th>BookingArchived:</th><td class="json-BookingArchived"></td></tr>
+                    <tr class="none"><th>BookingArchived:</th><td class="json-BookingArchived"></td></tr>
                 </table>
             </div>
             <div class="modal-footer">
@@ -89,8 +89,8 @@ ViewBag.Title = "Newsession";
         var studentID = button.data('studentid')
         var topic = button.data('topic')
         var description = button.data('description')
-        var targetingGroup = button.data('targetingGroup')
-        var campusID = button.data('campusID')
+        var targetingGroup = button.data('targetinggroup')
+        var campusID = button.data('campusid')
         var starting = button.data('starting')
         var ending = button.data('ending')
         var maximum = button.data('maximum')
