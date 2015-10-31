@@ -38,6 +38,14 @@ namespace SDP_MVC5.Controllers
         {
             return View();
         }
+        public ActionResult SearchHistory()
+        {
+            return View();
+        }
+        public ActionResult SearchWorkshopList()
+        {
+            return View();
+        }
         public ActionResult Program()
         {
             return View();

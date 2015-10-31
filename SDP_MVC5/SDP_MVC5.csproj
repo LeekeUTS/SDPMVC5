@@ -320,6 +320,8 @@
     <Content Include="Views\Shared\_alterReminder.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\BookingHistory.cshtml" />
+    <Content Include="Views\Home\SearchHistory.cshtml" />
+    <Content Include="Views\Home\SearchWorkshopList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

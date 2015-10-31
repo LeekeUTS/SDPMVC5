@@ -1,13 +1,14 @@
 ﻿@{
     ViewBag.Title = "Search";
 }
-<h2>Search</h2>
+<h2>Search Booking History</h2>
 <!-- // todo: studentid -->
 <script>
-    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=true&PageSize=1000")
+    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=0&PageSize=1000")
 </script>
 <div class="f_loading"></div>
 <div class="row">
+
     <div class="col-md-12">
         <form action="#" method="get">
             <div class="input-group">
@@ -23,7 +24,7 @@
                 <tr>
                     @*<th>BookingId</th>
                         <th>workshopID</th>
-                        <th>studentID</th>*@
+                        <th>studentID</th>>*@
                     <th>topic</th>
                     @*<th>description</th>*@
                     @*<th>targetingGroup</th>*@
@@ -70,8 +71,7 @@
     </div>
 </div>
 
-@Html.ActionLink("Booking a Workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-@Html.ActionLink("Go to 'My Waiting List'", "Index", "Waitings", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
+@Html.ActionLink("Back to My Booking", "Newsession", null, new { @class = "btn btn-primary sizeFull btn-lg" })
 <div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
