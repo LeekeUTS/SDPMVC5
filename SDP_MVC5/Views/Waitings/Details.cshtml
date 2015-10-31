@@ -64,18 +64,20 @@
         $.get(url, params, function (data) {
             if (data.IsSuccess == true) {
                 jsonData = data.Results;
-                console.log(jsonData);
+                //console.log(jsonData);
                 var finalJson = [];
                 for (var i = 0, len = jsonData.length; i < len; i++) {
                     if (jsonData[i].WorkshopId == workshopID) {
                         finalJson.push(jsonData[i]);
                     }
                 }
-                
+
+                console.log("finalJson="+finalJson)
                 var singleFinal = [];
                 singleFinal.push(finalJson[0])
-                getMax = singleFinal[0].maximum;
+                
                 getCount = singleFinal[0].BookingCount;
+                getMax = singleFinal[0].maximum;
                 if (getMax > getCount) {
                     $(".f_vacancies").html(getMax - getCount);
                     $(".f_WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreateViaWaiting(" + workshopID + "," + studentID + "," + studentID + "," + waitingID +")")

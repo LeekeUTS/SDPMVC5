@@ -1,10 +1,12 @@
-﻿@{
-ViewBag.Title = "Newsession";
+﻿
+@{
+    ViewBag.Title = "BookingHistory";
 }
-<h2>My Bookings</h2>
-<!-- // todo: studentid -->
+
+<h2>Booking History</h2>
+
 <script>
-    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=true&PageSize=1000")
+    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=0&PageSize=1000")
 </script>
 <div class="f_loading"></div>
 <ul class="list-group f_load" id="" data-bind="foreach: ko_array">
@@ -34,11 +36,7 @@ ViewBag.Title = "Newsession";
         }"></a>
     </li>
 </ul>
-@Html.ActionLink("Booking a Workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-@Html.ActionLink("Go to 'My Waiting List'", "Index", "Waitings", null, new { @class= "btn btn-info sizeFull btn-lg mtl"})
-@Html.ActionLink("Search", "Search", "Home", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
-@Html.ActionLink("View Booking History", "BookingHistory", "Home", null, 
-    new { @class = "btn btn-info sizeFull btn-lg mtl" })
+@Html.ActionLink("Back to My Booking", "Newsession", "Home", null, new { @class = "btn btn-primary sizeFull btn-lg" })
 <div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -72,13 +70,6 @@ ViewBag.Title = "Newsession";
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- //todo: alert booking success -->
-                <!-- url: studentID, workshopID -->
-                @Html.ActionLink("Reminder", "Create", "Reminders", new { },
-                new { @class = "btn btn-info", id="f_reminderCreate"})
-                @Html.ActionLink("Attendance", "Create", "Attendances", new { },
-                         new { @class = "btn btn-warning", id = "f_attendanceCreate" })
-                <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel Booking</a>
             </div>
         </div>
     </div>

@@ -30,6 +30,10 @@ namespace SDP_MVC5.Controllers
         {
             return View();
         }
+        public ActionResult BookingHistory()
+        {
+            return View();
+        }
         public ActionResult Search()
         {
             return View();
