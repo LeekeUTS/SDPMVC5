@@ -34,10 +34,10 @@
         }"></a>
     </li>
 </ul>
-@Html.ActionLink("Booking a Workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-@Html.ActionLink("Go to 'My Waiting List'", "Index", "Waitings", null, new { @class= "btn btn-info sizeFull btn-lg mtl"})
+@Html.ActionLink("Book workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
+@Html.ActionLink("My waiting list", "Index", "Waitings", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
 @Html.ActionLink("Search", "Search", "Home", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
-@Html.ActionLink("View Booking History", "BookingHistory", "Home", null, 
+@Html.ActionLink("Booking history", "BookingHistory", "Home", null, 
     new { @class = "btn btn-info sizeFull btn-lg mtl" })
 <div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
     <div class="modal-dialog" role="document">
@@ -72,8 +72,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- //todo: alert booking success -->
-                <!-- url: studentID, workshopID -->
                 @Html.ActionLink("Reminder", "Create", "Reminders", new { },
                 new { @class = "btn btn-info", id="f_reminderCreate"})
                 @Html.ActionLink("Attendance", "Create", "Attendances", new { },
