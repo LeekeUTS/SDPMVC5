@@ -232,6 +232,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\oocss.css" />
+    <Content Include="Content\SpryValidationTextField.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -251,6 +252,7 @@
     <Content Include="Scripts\project.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\SpryValidationTextField.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -323,6 +325,7 @@
     <Content Include="Views\Home\SearchHistory.cshtml" />
     <Content Include="Views\Home\SearchWorkshopList.cshtml" />
     <Content Include="Views\Shared\_DeleteConfirm.cshtml" />
+    <Content Include="Views\Reminders\_DateValidation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
