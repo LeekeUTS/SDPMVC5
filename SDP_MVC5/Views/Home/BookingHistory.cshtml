@@ -1,9 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "BookingHistory";
+    ViewBag.Title = "My Booking History";
 }
 
-<h2>Booking History</h2>
+<h2>@ViewBag.Title</h2>
 
 <script>
     api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=0&PageSize=1000")

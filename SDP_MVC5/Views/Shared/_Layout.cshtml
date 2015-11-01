@@ -37,12 +37,13 @@
             <ul class="nav sidebar-nav">
                 <li class="sidebar-brand"> <a href="#">UTS: HELPS</a> </li>
                 <li>@Html.ActionLink("My Information", "Student", "Home")</li>
-                <li>@Html.ActionLink("My Bookings", "Newsession", "Home")</li>
+                <li>@Html.ActionLink("My Future Bookings", "Newsession", "Home")</li>
+                <li>@Html.ActionLink("My Booking History", "BookingHistory", "Home")</li>
                 <li>@Html.ActionLink("My Attendence", "Index", "Attendances")</li>
                 <li>@Html.ActionLink("My Reminder", "Index", "Reminders")</li>
                 <li>@Html.ActionLink("My Waiting List", "Index", "Waitings")</li>
-                <li>@Html.ActionLink("Workshop Registration", "Workshop", "Home")</li>
-                <li>@Html.ActionLink("Programs", "Program", "Home")</li>
+                <li>@Html.ActionLink("All Workshops", "Workshop", "Home")</li>
+                <li>@Html.ActionLink("Services Offered", "Program", "Home")</li>
                 <li>@Html.ActionLink("FAQ", "Help", "Home")</li>
                 @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                 {

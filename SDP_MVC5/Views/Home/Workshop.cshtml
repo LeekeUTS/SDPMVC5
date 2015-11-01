@@ -1,11 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Workshop";
+    ViewBag.Title = "All Workshops";
 }
 @Model 
 <script>
     api_ajax("api/workshop/workshopSets", "/true");
 </script>
-<h1>Workshop Registration</h1>
+<h2>@ViewBag.Title</h2>
 <!-- //todo:just use class or id "loading" to generate the all loading part * -->
 <div class="f_loading"></div>
 
