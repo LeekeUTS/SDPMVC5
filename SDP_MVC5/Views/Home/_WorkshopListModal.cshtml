@@ -64,6 +64,15 @@
         modal.find('.modal-BookingCount').text(BookingCount)
         modal.find('.modal-archived').text(archived)
         f_waitingCreateHref = $("#f_waitingCreate").attr("href");
+        if (BookingCount < maximum) {
+            $("#f_waitingCreate").show();
+            $("#f_waitingCreate").hide();
+        } else {
+            $("#f_waitingCreate").hide();
+            $("#f_waitingCreate").show();
+        }
+        console.log("maximum=" + maximum);
+        console.log("BookingCount=" + BookingCount);
         $("#f_waitingCreate").attr("href", f_waitingCreateHref + "?workshopid=" + WorkshopID + "&workshopName=" + topic + "&workshopSetID=" + WorkShopSetID);
         $("#WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreate(" + WorkshopID + "," + studentID + "," + studentID + ")")
     })

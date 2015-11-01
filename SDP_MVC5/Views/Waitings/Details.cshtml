@@ -71,34 +71,35 @@
                         finalJson.push(jsonData[i]);
                     }
                 }
-
-                console.log("finalJson="+finalJson)
-                var singleFinal = [];
-                singleFinal.push(finalJson[0])
-                
-                getCount = singleFinal[0].BookingCount;
-                getMax = singleFinal[0].maximum;
-                if (getMax > getCount) {
-                    $(".f_vacancies").html(getMax - getCount);
-                    $(".f_WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreateViaWaiting(" + workshopID + "," + studentID + "," + studentID + "," + waitingID +")")
-                    $(".f_booking_available").show();
-                    $(".f_booking_unavailable").hide();
-                    console.log("available");
-                } else {
-                    $(".f_booking_available").hide();
-                    $(".f_booking_unavailable").show();
-                    console.log("unavailable");
-
+                if(finalJson.length==0){
+                    alert("Error")
+                }else{
+                    console.log("finalJson="+finalJson)
+                    var singleFinal = [];
+                    singleFinal.push(finalJson[0])
+                    getCount = singleFinal[0].BookingCount;
+                    getMax = singleFinal[0].maximum;
+                    if (getMax > getCount) {
+                        $(".f_vacancies").html(getMax - getCount);
+                        $(".f_WorkshopBookingCreate").attr("href", "javascript:api_WorkshopBookingCreateViaWaiting(" + workshopID + "," + studentID + "," + studentID + "," + waitingID +")")
+                        $(".f_booking_available").show();
+                        $(".f_booking_unavailable").hide();
+                        console.log("available");
+                    } else {
+                        $(".f_booking_available").hide();
+                        $(".f_booking_unavailable").show();
+                        console.log("unavailable");
+                    }
+                    console.log(getMax);
+                    console.log(getCount);
+                    ko.applyBindings({
+                        ko_array: singleFinal
+                    });
+                    console.log(finalJson);
+                    $(".f_loading div").fadeOut(function () {
+                        $(".f_load").fadeIn();
+                    });
                 }
-                console.log(getMax);
-                console.log(getCount);
-                ko.applyBindings({
-                    ko_array: singleFinal
-                });
-                console.log(finalJson);
-                $(".f_loading div").fadeOut(function () {
-                    $(".f_load").fadeIn();
-                });
             } else {
                 alert(data.DisplayMessage);
             }
