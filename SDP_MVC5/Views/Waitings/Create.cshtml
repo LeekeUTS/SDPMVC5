@@ -1,11 +1,8 @@
 ﻿@model SDP_MVC5.Models.Waiting
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Confrim";
 }
-
-<h2 class="none">Create</h2>
-
 
 @using (Html.BeginForm())
 {
@@ -26,6 +23,7 @@
                         </div>
                         <div class="modal-body">
                             <p><b>Workshop Name:</b> @Request.QueryString["workshopName"]</p>
+                            <p>There are <strong>@ViewBag.getCount</strong> student(s) in the waiting list.</p>
                             <p>Are you sure you want to add yourself to the waiting list?</p>
                             <div class="row">
                                 <div class="col-12-xs text-center">

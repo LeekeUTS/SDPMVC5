@@ -55,6 +55,7 @@ namespace SDP_MVC5.Controllers
         // GET: Waitings/Create
         public ActionResult Create(int WorkshopID, string WorkshopName, int WorkshopSetID)
         {
+            ViewBag.getCount = db.Waitings.Where(x => x.workshopID == WorkshopID).Count();
             Waiting data = new Waiting();
             data.createdtime = DateTime.Today;
             data.workshopID = WorkshopID;
