@@ -34,6 +34,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-default sizeFull" })
-    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default sizeFull mtm" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-default btn-block" })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "btn btn-danger btn-block" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-block" })
 </p>

@@ -322,6 +322,7 @@
     <Content Include="Views\Home\BookingHistory.cshtml" />
     <Content Include="Views\Home\SearchHistory.cshtml" />
     <Content Include="Views\Home\SearchWorkshopList.cshtml" />
+    <Content Include="Views\Shared\_DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

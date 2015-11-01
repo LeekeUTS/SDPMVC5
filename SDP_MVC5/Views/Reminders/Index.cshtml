@@ -17,49 +17,5 @@
     new { @class = "list-group-item" })
     }
 </div>
-<!--
-    Todo: add workshopName to three table
-
--->
-<table class="table none">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.workshopID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.studentID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.createdtime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.remindertime)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.workshopID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.studentID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.createdtime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.remindertime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
 
 @Html.ActionLink("Back to My Booking", "Newsession", "Home", new { }, new { @class = "btn btn-default sizeFull" })

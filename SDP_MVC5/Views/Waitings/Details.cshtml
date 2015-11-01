@@ -32,7 +32,7 @@
         <div>
             <div class="alert alert-success f_booking_available">
                 This workshop still have <strong class="f_vacancies"></strong> vacancies.<br /><br />
-                <a class="btn btn-success sizeFull f_WorkshopBookingCreate">Booking</a>
+                <a class="btn btn-success btn-block f_WorkshopBookingCreate">Booking</a>
             </div>
             <div class="alert alert-danger f_booking_unavailable">
                 This workshop is full, you can't booking now.
@@ -47,9 +47,9 @@
     </div>
     <!-- Todo: Error-->
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
-    @Html.ActionLink("Back to List", "Index", "Waitings", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-    @Html.ActionLink("Go to 'My Booking'", "Newsession", "Home", null, new { @class = "btn btn-warning sizeFull btn-lg mtl" })
-    @Html.ActionLink("Remove this workshop", "Delete", "Waitings", new { id=Url.RequestContext.RouteData.Values["id"]}, new { @class = "btn btn-danger sizeFull btn-lg mtl" })
+    @Html.ActionLink("Back to List", "Index", "Waitings", null, new { @class = "btn btn-primary btn-block" })
+    @Html.ActionLink("Go to 'My Booking'", "Newsession", "Home", null, new { @class = "btn btn-warning btn-block" })
+    @Html.ActionLink("Remove this workshop", "Delete", "Waitings", new { id=Url.RequestContext.RouteData.Values["id"]}, new { @class = "btn btn-danger sizeFull btn-block" })
 <!-- todo: improve js -->
 <script>
     get_workshopID = $("#f_workshopID").val();

@@ -1,0 +1,25 @@
+﻿<div class="bs-example-modal mtl" style="background: #ffffff; ">
+    <div class="modal" style="overflow-y: visible;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure you want to delete this?</h4>
+                </div>
+                <div class="modal-body">
+                    <p><b>Workshop Name:</b> @ViewBag.GetWorkshopName </p>
+
+                </div>
+                <div class="modal-footer">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                        <a class="btn btn-default btn-md" href="javascript:window.history.back();">Cancel</a>
+                    }
+                </div>
+
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+</div>
