@@ -102,8 +102,27 @@ function api_ajax(getUrl, getAfter) {
         },
         success: function (result) {
             console.log(result);
+            var finalJson = [];
+            if (getUrl == "api/workshop/search" || getUrl == "api/workshop/booking") {
+                finalJson.push(result.Results[0]);
+                for (var i = 1, len = result.Results.length; i < len; i++) {
+                    if (getUrl == "api/workshop/search") {
+                        if (result.Results[i].WorkshopId != result.Results[i - 1].WorkshopId) {
+                            finalJson.push(result.Results[i]);
+                        }
+                    }
+                    if (getUrl == "api/workshop/booking") {
+                        if (result.Results[i].BookingId != result.Results[i - 1].BookingId) {
+                            finalJson.push(result.Results[i]);
+                        }
+                    }
+                }
+                console.log(finalJson);
+            } else {
+                finalJson = result.Results;
+            }
             ko.applyBindings({
-                ko_array: result.Results
+                ko_array: finalJson
             });
             
             $('ul.f_load li').not(function (i) {

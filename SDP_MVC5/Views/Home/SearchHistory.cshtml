@@ -22,48 +22,38 @@
         <table class="table table-list-search">
             <thead>
                 <tr>
-                    @*<th>BookingId</th>
-                        <th>workshopID</th>
-                        <th>studentID</th>>*@
                     <th>topic</th>
-                    @*<th>description</th>*@
-                    @*<th>targetingGroup</th>*@
-                    @*<th>campusID</th>*@
                     <th>starting</th>
                     <th>ending</th>
-                    @*<th>maximum</th>
-                        <th>cutoff</th>
-                        <th>canceled</th>
-                        <th>attended</th>
-                        <th>WorkShopSetID</th>
-                        <th>type</th>
-                        <th>reminder_num</th>
-                        <th>reminder_sent</th>*@
-                    @*<th>WorkshopArchived</th>
-                        <th>BookingArchived</th>*@
                 </tr>
             </thead>
             <tbody data-bind="foreach: ko_array">
                 <tr>
-                    @*<td data-bind="text: BookingId"></td>
-                        <td data-bind="text: workshopID"></td>
-                        <td data-bind="text: studentID"></td>*@
-                    <td data-bind="text: topic"></td>
-                    @*<td data-bind="text: description"></td>*@
-                    @*<td data-bind="text: targetingGroup"></td>*@
-                    @*<td data-bind="text: campusID"></td>*@
+                    <td><a href="javascript:void(0)" data-toggle="modal" data-target="#NewsessionModal"
+           data-bind="text: topic, attr: {
+            'data-studentId': '@User.Identity.Name.Substring(0,8)',
+            'data-BookingId': BookingId,
+            'data-workshopID': workshopID,
+            'data-studentID': studentID,
+            'data-topic': topic,
+            'data-description': description,
+            'data-targetingGroup': targetingGroup,
+            'data-campusID': campusID,
+            'data-starting': starting,
+            'data-ending': ending,
+            'data-maximum': maximum,
+            'data-cutoff': cutoff,
+            'data-canceled': canceled,
+            'data-attended': attended,
+            'data-WorkShopSetID': WorkShopSetID,
+            'data-type': type,
+            'data-reminder_num': reminder_num,
+            'data-reminder_sent': reminder_sent,
+            'data-WorkshopArchived': WorkshopArchived,
+            'data-BookingArchived': BookingArchived
+        }"></a></td>
                     <td data-bind="text: starting"></td>
                     <td data-bind="text: ending"></td>
-                    @*<td data-bind="text: maximum"></td>
-                        <td data-bind="text: cutoff"></td>
-                        <td data-bind="text: canceled"></td>
-                        <td data-bind="text: attended"></td>
-                        <td data-bind="text: WorkShopSetID"></td>
-                        <td data-bind="text: type"></td>
-                        <td data-bind="text: reminder_num"></td>
-                        <td data-bind="text: reminder_sent"></td>*@
-                    @*<td data-bind="text: WorkshopArchived"></td>
-                        <td data-bind="text: BookingArchived"></td>*@
                 </tr>
             </tbody>
         </table>
@@ -105,13 +95,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- //todo: alert booking success -->
-                <!-- url: studentID, workshopID -->
-                @Html.ActionLink("Reminder", "Create", "Reminders", new { },
-                new { @class = "btn btn-info", id = "f_reminderCreate" })
-                @Html.ActionLink("Attendance", "Create", "Attendances", new { },
-                         new { @class = "btn btn-warning", id = "f_attendanceCreate" })
-                <a id="WorkshopBookingCancel" class="btn btn-danger">Cancel</a>
             </div>
         </div>
     </div>

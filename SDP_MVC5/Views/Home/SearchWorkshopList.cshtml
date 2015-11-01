@@ -23,49 +23,15 @@
 <table class="table table-bordered  table-list-search mtl f_load" id="table">
     <thead>
         <tr>
-            @*<th>WorkshopId</th>*@
             <th>Workshop</th>
-            @*<th>description</th>
-                <th>targetingGroup</th>*@
             <th>Campus</th>
             <th>Start Date</th>
             <th>End Date</th>
-            @*<th>maximum</th>*@
-            @*<th>WorkShopSetID</th>*@
-            @*<th>cutoff</th>*@
-            @*<th>type</th>
-                <th>reminder_num</th>
-                <th>reminder_sent</th>
-                <th>DaysOfWeek</th>
-                <th>BookingCount</th>
-                <th>archived</th>*@
         </tr>
     </thead>
     <tbody data-bind="foreach: ko_array">
         <tr>
-            @*<td data-bind="text: WorkshopId"></td>*@
-            <td data-bind="text: topic"></td>
-            @*<td data-bind="text: description"></td>
-                <td data-bind="text: targetingGroup"></td>*@
-            <td data-bind="text: campus"></td>
-            <td data-bind="text: StartDate"></td>
-            <td data-bind="text: EndDate"></td>
-            @*<td data-bind="text: maximum"></td>
-                <td data-bind="text: WorkShopSetID"></td>
-                <td data-bind="text: cutoff"></td>
-                <td data-bind="text: type"></td>
-                <td data-bind="text: reminder_num"></td>
-                <td data-bind="text: reminder_sent"></td>
-                <td data-bind="text: DaysOfWeek"></td>
-                <td data-bind="text: BookingCount"></td>
-                <td data-bind="text: archived"></td>*@
-        </tr>
-    </tbody>
-</table>
-
-@*<ul class="list-group f_load none" data-bind="foreach: ko_array">
-    <li class="list-group-item">
-        <a href="javascript:void(0)" data-toggle="modal" data-target="#WorkshopListModal"
+            <td><a href="javascript:void(0)" data-toggle="modal" data-target="#WorkshopListModal"
            data-bind="text: topic, attr: {
     'data-studentid': '@User.Identity.Name.Substring(0,8)',
     'data-WorkshopId': WorkshopId,
@@ -84,9 +50,14 @@
     'data-DaysOfWeek': DaysOfWeek,
     'data-BookingCount': BookingCount,
     'data-archived': archived
-}" data-taggle="modal"></a>
-    </li>
-</ul>*@
+}" data-taggle="modal"></a></td>
+            <td data-bind="text: campus"></td>
+            <td data-bind="text: StartDate"></td>
+            <td data-bind="text: EndDate"></td>
+        </tr>
+    </tbody>
+</table>
+
 @Html.ActionLink("Back", "Workshop", new { }, new { @class="btn btn-primary sizeFull btn-lg"})
 @Html.Partial("_WorkshopListModal")
 
