@@ -6,7 +6,7 @@
 <h2>@ViewBag.Title</h2>
 
 <script>
-    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=0&PageSize=1000")
+    api_ajaxBookhistory("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=1&PageSize=1000")
 </script>
 <div class="f_loading"></div>
 <ul class="list-group f_load" id="" data-bind="foreach: ko_array">

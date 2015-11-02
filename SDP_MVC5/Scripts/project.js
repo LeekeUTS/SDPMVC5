@@ -135,6 +135,46 @@ function api_ajax(getUrl, getAfter) {
     })
 }
 
+function api_ajaxBookhistory(getUrl, getAfter) {
+    $.ajax({
+        // Json_WorkshopWorkshopSets
+        type: "Get",
+        beforeSend: function (request) {
+            request.setRequestHeader("AppKey", "123456");
+            $(".f_loading").removeClass("none");
+        },
+        contentType: "application/json",
+        url: JsonUrl + getUrl + getAfter,
+        dataType: "json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+        },
+        success: function (result) {
+            console.log(result);
+            var finalJson = [];
+            finalJson.push(result.Results[0]);
+            for (var i = 1, len = result.Results.length; i < len; i++) {
+                if (getUrl == "api/workshop/booking") {
+                    if (result.Results[i].BookingId != result.Results[i - 1].BookingId && result.Results[i].BookingArchived != null) {
+                        finalJson.push(result.Results[i]);
+                    }
+                }
+            }
+            console.log(finalJson);
+            ko.applyBindings({
+                ko_array: finalJson
+            });
+
+            $('ul.f_load li').not(function (i) {
+                return $(this).prevAll('li:has(a[data-workshopid="' + $('a', this).attr('data-workshopid') + '"])').length < 1;
+            }).remove();
+            $(".f_loading div").fadeOut(function () {
+                $(".f_load").fadeIn();
+            });
+        }
+    })
+}
+
 // Page:WorkshopList
 $(document).ready(function () {
    

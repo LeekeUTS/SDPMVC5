@@ -1,12 +1,55 @@
 ﻿@{
     ViewBag.Title = "JsonWorkshopBookingSearch";
 }
+<script>
+        function api_ajaxBookhistory(getUrl, getAfter) {
+            $.ajax({
+                // Json_WorkshopWorkshopSets
+                type: "Get",
+                beforeSend: function (request) {
+                    request.setRequestHeader("AppKey", "123456");
+                    $(".f_loading").removeClass("none");
+                },
+                contentType: "application/json",
+                url: JsonUrl + getUrl + getAfter,
+                dataType: "json",
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
+                },
+                success: function (result) {
+                    console.log(result);
+                    var finalJson = [];
+                        finalJson.push(result.Results[0]);
+                        for (var i = 1, len = result.Results.length; i < len; i++) {
+                            if (getUrl == "api/workshop/booking") {
+                                if (result.Results[i].BookingId != result.Results[i - 1].BookingId && result.Results[i].BookingArchived != null) {
+                                    finalJson.push(result.Results[i]);
+                                }
+                            }
+                        }
+                        console.log(finalJson);
+                    ko.applyBindings({
+                        ko_array: finalJson
+                    });
+
+                    $('ul.f_load li').not(function (i) {
+                        return $(this).prevAll('li:has(a[data-workshopid="' + $('a', this).attr('data-workshopid') + '"])').length < 1;
+                    }).remove();
+                    $(".f_loading div").fadeOut(function () {
+                        $(".f_load").fadeIn();
+                    });
+                }
+            })
+        }
+</script>
 
 <h2>JsonWorkshopBookingSearch</h2>
 <script src="~/Scripts/knockout-2.2.0.js"></script>
-<script src="~/Json/JsonWorkshopBookingSearch.js"></script>
+<script>
+    api_ajaxBookhistory("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&PageSize=1000")
+</script>
 
-<table style="width:800px;" class="table table-bordered mtl none sizeFull" id="table">
+<table style="width:800px;" class="table table-bordered mtl" id="table">
     <thead>
         <tr>
             <th>BookingId</th>
@@ -30,7 +73,7 @@
             <th>BookingArchived</th>
         </tr>
     </thead>
-    <tbody data-bind="foreach: ko_array_url">
+    <tbody data-bind="foreach: ko_array">
         <tr>
             <td data-bind="text: BookingId"></td>
             <td data-bind="text: workshopID"></td>
@@ -54,3 +97,4 @@
         </tr>
     </tbody>
 </table>
+
