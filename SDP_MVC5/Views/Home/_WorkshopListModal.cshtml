@@ -65,10 +65,10 @@
         modal.find('.modal-archived').text(archived)
         f_waitingCreateHref = $("#f_waitingCreate").attr("href");
         if (BookingCount < maximum) {
-            $("#f_waitingCreate").show();
+            $("#WorkshopBookingCreate").show();
             $("#f_waitingCreate").hide();
         } else {
-            $("#f_waitingCreate").hide();
+            $("#WorkshopBookingCreate").hide();
             $("#f_waitingCreate").show();
         }
         console.log("maximum=" + maximum);

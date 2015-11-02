@@ -109,7 +109,10 @@
         modal.find('.json-WorkshopArchived').text(WorkshopArchived)
         modal.find('.json-BookingArchived').text(BookingArchived)
         f_reminderCreateHref = $("#f_reminderCreate").attr("href");
-        $("#f_reminderCreate").attr("href", f_reminderCreateHref + "?workshopid=" + workshopID + "&bookingid=" + bookingID + "&workshopname=" + topic);
+        $("#f_reminderCreate").attr("href", f_reminderCreateHref + "?workshopid=" + workshopID
+            + "&bookingid=" + bookingID
+            + "&workshopname=" + topic
+            + "&starting=" + starting);
         f_attendanceCreateHref = $("#f_attendanceCreate").attr("href");
         $("#f_attendanceCreate").attr("href", f_attendanceCreateHref + "?workshopid=" + workshopID + "&bookingid=" + bookingID + "&workshopname=" + topic);
         $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopID + "," + studentID + "," + studentID + ")")

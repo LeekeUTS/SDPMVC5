@@ -8,13 +8,6 @@
 <hr />
 <div>
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.workshopID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.workshopID)
-        </dd>*@
         <dt>
             @Html.DisplayNameFor(model => model.workshopName):
         </dt>
@@ -22,22 +15,6 @@
         <dd>
             @Html.DisplayFor(model => model.workshopName)
         </dd>
-        @*<dt>
-        @Html.DisplayNameFor(model => model.studentID)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.studentID)
-    </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.createdtime)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.createdtime)
-    </dd>*@
-
         <dt>
             @Html.DisplayNameFor(model => model.remindertime):
         </dt>
@@ -51,4 +28,14 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-default btn-block"})
     @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "btn btn-danger btn-block" })
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-block" })
+    <a class="btn btn-warning btn-block none" rel="nofollow" href="@(
+  (String.Format("mailto:"+User.Identity.Name.Substring(0,8)+"@student.uts.edu.au?subject={0}&body={1}",
+    HttpUtility.UrlPathEncode("UTS HELPS Workshop Reminder"),
+HttpUtility.UrlPathEncode(Html.DisplayNameFor(model => model.workshopName) + " : "
++ Html.DisplayFor(model => model.workshopName) + "%0D%0A" + Html.DisplayNameFor(model => model.remindertime)
++ " : " + Html.DisplayFor(model => model.remindertime)) + "%0D%0A" + "UTS HELPS")
+    )
+    )">
+        share by email
+    </a>
 </p>

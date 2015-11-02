@@ -25,5 +25,8 @@ namespace SDP_MVC5.Models
         [Required]
         [Display(Name = "Workshop Name")]
         public string workshopName { get; set; }
+        [Required]
+        [Display(Name = "Workshop Date")]
+        public DateTime starting { get; set; }
     }
 }
