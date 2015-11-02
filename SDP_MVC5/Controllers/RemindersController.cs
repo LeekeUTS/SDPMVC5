@@ -14,7 +14,6 @@ namespace SDP_MVC5.Controllers
     public class RemindersController : Controller
     {
         private StudentContext db = new StudentContext();
-
         // GET: Reminders
         public ActionResult Index()
         {
@@ -45,15 +44,23 @@ namespace SDP_MVC5.Controllers
         // GET: Reminders/Create
         public ActionResult Create(int workshopID, int bookingID, string workshopName, DateTime starting)
         {
-            Reminder reminder = new Reminder();
-            reminder.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
-            reminder.createdtime = DateTime.Today;
-            reminder.remindertime = DateTime.Now;
-            reminder.starting = starting;
-            reminder.workshopName = workshopName;
-            reminder.bookingID = bookingID;
-            reminder.workshopID = workshopID;
-            return View(reminder);
+            Reminder reminder0 = db.Reminder.Where(x => x.bookingID == bookingID
+                && x.workshopID == workshopID).FirstOrDefault();
+            if (reminder0 == null)
+            {
+                Reminder reminder = new Reminder();
+                reminder.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+                reminder.createdtime = DateTime.Today;
+                reminder.remindertime = DateTime.Now;
+                reminder.starting = starting;
+                reminder.workshopName = workshopName;
+                reminder.bookingID = bookingID;
+                reminder.workshopID = workshopID;
+                return View(reminder);
+            }
+            else {
+                return RedirectToAction("Edit", "Reminders", new { @id = reminder0.ID });
+            }
         }
 
         // POST: Reminders/Create
@@ -61,7 +68,8 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,remindertime,workshopName,starting")] Reminder reminder)
+        //public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,remindertime,workshopName,starting")] Reminder reminder)
+        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,remindertime,workshopName,starting,bookingID")] Reminder reminder)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +101,9 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,workshopID,studentID,createdtime,remindertime,workshopName")] Reminder reminder)
+        public ActionResult Edit(Reminder reminder)
         {
+            Response.Write(reminder.remindertime);
             if (ModelState.IsValid)
             {
                 db.Entry(reminder).State = EntityState.Modified;

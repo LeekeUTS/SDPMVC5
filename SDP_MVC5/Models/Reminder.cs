@@ -20,7 +20,7 @@ namespace SDP_MVC5.Models
         public DateTime createdtime { get; set; }
         [Display(Name="Reminder Date")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString="{0:yyyy-MM-dd}", ApplyFormatInEditMode=true)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime remindertime { get; set; }
         [Required]
         [Display(Name = "Workshop Name")]

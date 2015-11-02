@@ -86,7 +86,16 @@ namespace SDP_MVC5.Controllers
                 case SignInStatus.Success:
                     {
                         int studentID = int.Parse(model.Email.ToString().Substring(0, 8));
-                        Session["reminders"] = db.Reminder.Where(x => x.studentID == studentID && x.remindertime <= DateTime.Today).Count();
+                        int ReminderCount = db.Reminder.Where(x => x.studentID == studentID && x.remindertime <= DateTime.Today).Count();
+                        if (ReminderCount == 0)
+                        {
+                            Session.Abandon();
+                        }
+                        else
+                        {
+                            Session["reminders"] = ReminderCount;
+                        }
+                        
                         return RedirectToLocal(returnUrl);
                     }
                 case SignInStatus.LockedOut:

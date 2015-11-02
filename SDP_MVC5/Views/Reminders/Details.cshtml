@@ -28,12 +28,12 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-default btn-block"})
     @Html.ActionLink("Delete", "Delete", new { id = Model.ID }, new { @class = "btn btn-danger btn-block" })
     @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-block" })
-    <a class="btn btn-warning btn-block none" rel="nofollow" href="@(
+    <a class="btn btn-warning btn-block" rel="nofollow" href="@(
   (String.Format("mailto:"+User.Identity.Name.Substring(0,8)+"@student.uts.edu.au?subject={0}&body={1}",
     HttpUtility.UrlPathEncode("UTS HELPS Workshop Reminder"),
 HttpUtility.UrlPathEncode(Html.DisplayNameFor(model => model.workshopName) + " : "
-+ Html.DisplayFor(model => model.workshopName) + "%0D%0A" + Html.DisplayNameFor(model => model.remindertime)
-+ " : " + Html.DisplayFor(model => model.remindertime)) + "%0D%0A" + "UTS HELPS")
++ Html.DisplayFor(model => model.workshopName) + "%0D%0A" + Html.DisplayNameFor(model => model.starting)
++ " : " + Html.DisplayFor(model => model.starting)) + "%0D%0A%0D%0A" + "UTS HELPS")
     )
     )">
         share by email

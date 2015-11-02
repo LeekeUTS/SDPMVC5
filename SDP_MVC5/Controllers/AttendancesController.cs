@@ -41,14 +41,23 @@ namespace SDP_MVC5.Controllers
         
         public ActionResult Create(int workshopID, int bookingID, string workshopName)
         {
-            Attendance attendence = new Attendance();
-            attendence.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
-            attendence.workshopName = workshopName;
-            attendence.createdtime = DateTime.Today;
-            attendence.attendancetime = DateTime.Now;
-            attendence.bookingID = bookingID;
-            attendence.workshopID = workshopID;
-            return View(attendence);
+            Attendance attendence0 = db.Attendence.Where(x => x.bookingID == bookingID
+                && x.workshopID == workshopID).FirstOrDefault();
+            if (attendence0 == null)
+            {
+                Attendance attendence = new Attendance();
+                attendence.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+                attendence.workshopName = workshopName;
+                attendence.createdtime = DateTime.Today;
+                attendence.attendancetime = DateTime.Now;
+                attendence.bookingID = bookingID;
+                attendence.workshopID = workshopID;
+                return View(attendence);
+            }
+            else
+            {
+                return RedirectToAction("Edit", "Attendances", new { @id = attendence0.ID });
+            }
         }
 
         [Route("Attendances/{workshopID:int}/{bookingID:int}/{workshopName}")]
@@ -101,7 +110,7 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,workshopID,bookingID,studentID,createdtime,attendancetime,passCode,workshopName")] Attendance attendance)
+        public ActionResult Edit(Attendance attendance)
         {
             if (ModelState.IsValid)
             {

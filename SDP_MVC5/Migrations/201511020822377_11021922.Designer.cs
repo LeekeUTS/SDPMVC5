@@ -7,13 +7,13 @@ namespace SDP_MVC5.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class _11021332 : IMigrationMetadata
+    public sealed partial class _11021922 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_11021332));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(_11021922));
         
         string IMigrationMetadata.Id
         {
-            get { return "201511020232310_11021332"; }
+            get { return "201511020822377_11021922"; }
         }
         
         string IMigrationMetadata.Source

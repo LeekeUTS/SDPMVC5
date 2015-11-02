@@ -55,14 +55,23 @@ namespace SDP_MVC5.Controllers
         // GET: Waitings/Create
         public ActionResult Create(int WorkshopID, string WorkshopName, int WorkshopSetID)
         {
-            ViewBag.getCount = db.Waitings.Where(x => x.workshopID == WorkshopID).Count();
-            Waiting data = new Waiting();
-            data.createdtime = DateTime.Today;
-            data.workshopID = WorkshopID;
-            data.workshopName = WorkshopName;
-            data.workshopSetID = WorkshopSetID;
-            data.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
-            return View(data);
+            Waiting waiting0 = db.Waitings.Where(x => x.studentID.ToString() == User.Identity.Name.ToString().Substring(0, 8)
+                && x.workshopID == WorkshopID).FirstOrDefault();
+            if (waiting0 == null)
+            {
+                ViewBag.getCount = db.Waitings.Where(x => x.workshopID == WorkshopID).Count();
+                Waiting data = new Waiting();
+                data.createdtime = DateTime.Today;
+                data.workshopID = WorkshopID;
+                data.workshopName = WorkshopName;
+                data.workshopSetID = WorkshopSetID;
+                data.studentID = int.Parse(User.Identity.Name.Substring(0, 8));
+                return View(data);
+            }
+            else
+            {
+                return RedirectToAction("Edit", "Waitings", new { @id = waiting0.ID });
+            }
         }
 
 
@@ -73,7 +82,7 @@ namespace SDP_MVC5.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         // Todo: ask default value of database;
-        public ActionResult Create([Bind(Include = "ID,workshopID,studentID,createdtime,workshopName,workshopSetID")] Waiting waiting)
+        public ActionResult Create(Waiting waiting)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +114,7 @@ namespace SDP_MVC5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,workshopID,studentID,created")] Waiting waiting)
+        public ActionResult Edit(Waiting waiting)
         {
             if (ModelState.IsValid)
             {
