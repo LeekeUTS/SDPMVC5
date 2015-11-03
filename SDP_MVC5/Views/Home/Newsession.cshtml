@@ -34,11 +34,11 @@
         }"></a>
     </li>
 </ul>
-@Html.ActionLink("Book workshop", "Workshop", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-@Html.ActionLink("My waiting list", "Index", "Waitings", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
-@Html.ActionLink("Search", "Search", "Home", null, new { @class = "btn btn-info sizeFull btn-lg mtl" })
-@Html.ActionLink("Booking history", "BookingHistory", "Home", null, 
-    new { @class = "btn btn-info sizeFull btn-lg mtl" })
+@Html.ActionLink("Book workshop", "Workshop", null, new { @class = "btn btn-primary btn-block" })
+@Html.ActionLink("My waiting list", "Index", "Waitings", null, new { @class = "btn btn-info btn-block" })
+@Html.ActionLink("Search", "Search", "Home", null, new { @class = "btn btn-info btn-block" })
+@Html.ActionLink("Booking history", "BookingHistory", "Home", null,
+        new { @class = "btn btn-info btn-block" })
 <div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -50,6 +50,7 @@
                 <!-- //todo: if td = null then tr = none -->
                 <table class="table table-bordered table-condensed table-striped text-capitalize">
                     <tr><th>Description:</th><td class="json-description"></td></tr>
+                    <tr><th>Type:</th><td class="json-type"></td></tr>
                     <tr><th>Targeting Group:</th><td class="json-targetingGroup"></td></tr>
                     <tr><th>Starting:</th><td class="json-starting"></td></tr>
                     <tr><th>Ending:</th><td class="json-ending"></td></tr>

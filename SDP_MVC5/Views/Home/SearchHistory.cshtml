@@ -3,9 +3,11 @@
 }
 <h2>Search Booking History</h2>
 <!-- // todo: studentid -->
+
 <script>
-    api_ajax("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&active=0&PageSize=1000")
+    api_ajaxBookhistory("api/workshop/booking", "/search?StudentId=@User.Identity.Name.Substring(0,8)&PageSize=1000")
 </script>
+<div class="alert-danger none_" id="api_errorMessage"></div>
 <div class="f_loading"></div>
 <div class="row">
 
@@ -61,94 +63,9 @@
     </div>
 </div>
 
-@Html.ActionLink("Back to My Booking", "Newsession", null, new { @class = "btn btn-primary sizeFull btn-lg" })
-<div class="modal fade" id="NewsessionModal" tabindex="-1" role="dialog" aria-labelledby="NewsessionModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title modal-topic json-topic"></h4>
-            </div>
-            <div class="modal-body">
-                <!-- //todo: if td = null then tr = none -->
-                <table class="table table-bordered table-condensed table-striped text-capitalize">
-                    <tr class="none"><th>BookingId:</th><td class="json-BookingId"></td></tr>
-                    <tr class="none"><th>workshopID:</th><td class="json-workshopID"></td></tr>
-                    <tr class="none"><th>studentID:</th><td class="json-studentID"></td></tr>
-                    <tr class="none"><th>topic:</th><td class="json-topic"></td></tr>
-                    <tr><th>description:</th><td class="json-description"></td></tr>
-                    <tr><th>targetingGroup:</th><td class="json-targetingGroup"></td></tr>
-                    <tr><th>campusID:</th><td class="json-campusID"></td></tr>
-                    <tr><th>starting:</th><td class="json-starting"></td></tr>
-                    <tr><th>ending:</th><td class="json-ending"></td></tr>
-                    <tr class="none"><th>maximum:</th><td class="json-maximum"></td></tr>
-                    <tr class="none"><th>cutoff:</th><td class="json-cutoff"></td></tr>
-                    <tr class="none"><th>canceled:</th><td class="json-canceled"></td></tr>
-                    <tr class="none"><th>attended:</th><td class="json-attended"></td></tr>
-                    <tr class="none"><th>WorkShopSetID:</th><td class="json-WorkShopSetID"></td></tr>
-                    <tr class="none"><th>type:</th><td class="json-type"></td></tr>
-                    <tr class="none"><th>reminder_num:</th><td class="json-reminder_num"></td></tr>
-                    <tr class="none"><th>reminder_sent:</th><td class="json-reminder_sent"></td></tr>
-                    <tr class="none"><th>WorkshopArchived:</th><td class="json-WorkshopArchived"></td></tr>
-                    <tr><th>BookingArchived:</th><td class="json-BookingArchived"></td></tr>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    $('#NewsessionModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var bookingID = button.data('bookingid')
-        var workshopID = button.data('workshopid')
-        var studentID = button.data('studentid')
-        var topic = button.data('topic')
-        var description = button.data('description')
-        var targetingGroup = button.data('targetingGroup')
-        var campusID = button.data('campusID')
-        var starting = button.data('starting')
-        var ending = button.data('ending')
-        var maximum = button.data('maximum')
-        var cutoff = button.data('cutoff')
-        var canceled = button.data('canceled')
-        var attended = button.data('attended')
-        var WorkShopSetID = button.data('WorkShopSetID')
-        var type = button.data('type')
-        var reminder_num = button.data('reminder_num')
-        var reminder_sent = button.data('reminder_sent')
-        var WorkshopArchived = button.data('WorkshopArchived')
-        var BookingArchived = button.data('BookingArchived')
-        var modal = $(this)
-        modal.find('.json-BookingId').text(bookingID)
-        modal.find('.json-workshopID').text(workshopID)
-        modal.find('.json-studentID').text(studentID)
-        modal.find('.json-topic').text(topic)
-        modal.find('.json-description').text(description)
-        modal.find('.json-targetingGroup').text(targetingGroup)
-        modal.find('.json-campusID').text(campusID)
-        modal.find('.json-starting').text(starting)
-        modal.find('.json-ending').text(ending)
-        modal.find('.json-maximum').text(maximum)
-        modal.find('.json-cutoff').text(cutoff)
-        modal.find('.json-canceled').text(canceled)
-        modal.find('.json-attended').text(attended)
-        modal.find('.json-WorkShopSetID').text(WorkShopSetID)
-        modal.find('.json-type').text(type)
-        modal.find('.json-reminder_num').text(reminder_num)
-        modal.find('.json-reminder_sent').text(reminder_sent)
-        modal.find('.json-WorkshopArchived').text(WorkshopArchived)
-        modal.find('.json-BookingArchived').text(BookingArchived)
-        f_reminderCreateHref = $("#f_reminderCreate").attr("href");
-        $("#f_reminderCreate").attr("href", f_reminderCreateHref + "?workshopid=" + workshopID + "&bookingid=" + bookingID + "&workshopname=" + topic);
-        f_attendanceCreateHref = $("#f_attendanceCreate").attr("href");
-        $("#f_attendanceCreate").attr("href", f_attendanceCreateHref + "?workshopid=" + workshopID + "&bookingid=" + bookingID + "&workshopname=" + topic);
-        $("#WorkshopBookingCancel").attr("href", "javascript:api_WorkshopBookingCancel(" + workshopID + "," + studentID + "," + studentID + ")")
-    })
-</script>
+@Html.ActionLink("Back to My Booking", "Newsession", null, new { @class = "btn btn-primary btn-block" })
 
+@Html.Partial("_BookingHistoryModal")
 <script>
 
     $(document).ready(function () {

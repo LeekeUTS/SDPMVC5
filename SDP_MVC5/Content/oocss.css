@@ -176,6 +176,9 @@
 .none {
 	display: none !important;
 }
+.none_ {
+	display: none;
+}
 .hidden {
 	overflow: hidden;
 }

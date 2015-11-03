@@ -282,6 +282,8 @@
     <Content Include="Views\Home\SearchWorkshopList.cshtml" />
     <Content Include="Views\Shared\_DeleteConfirm.cshtml" />
     <Content Include="Views\Reminders\_DateValidation.cshtml" />
+    <Content Include="Views\Home\_BookingHistoryModal.cshtml" />
+    <Content Include="Views\Home\BookingCancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

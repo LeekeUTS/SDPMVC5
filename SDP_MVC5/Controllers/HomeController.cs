@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SDP_MVC5.Models;
 
 namespace SDP_MVC5.Controllers
 {
+
     [Authorize]
     public class HomeController : Controller
     {
+        SDP_MVC5.Models.StudentContext db = new StudentContext();
         //
         // GET: /Demo/
         public ActionResult Index()
@@ -30,6 +33,20 @@ namespace SDP_MVC5.Controllers
         {
             return View();
         }
+        
+        public ActionResult BookingCancel(int WorkshopID, int StudentID)
+        {
+            //int studentID = int.Parse(User.Identity.Name.ToString().Substring(0, 8));
+            db.Reminder.RemoveRange(db.Reminder.Where(c => c.studentID == StudentID && c.workshopID == WorkshopID));
+            db.SaveChanges();
+            db.Waitings.RemoveRange(db.Waitings.Where(c => c.workshopID == WorkshopID && c.studentID == StudentID));
+            db.SaveChanges();
+            db.Attendence.RemoveRange(db.Attendence.Where(c => c.studentID == StudentID && c.workshopID == WorkshopID));
+            db.SaveChanges();
+
+            return RedirectToAction("Newsession");
+        }
+
         public ActionResult BookingHistory()
         {
             return View();

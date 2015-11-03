@@ -150,27 +150,34 @@ function api_ajaxBookhistory(getUrl, getAfter) {
             alert("Request: " + XMLHttpRequest.toString() + "\n\nStatus: " + textStatus + "\n\nError: " + errorThrown);
         },
         success: function (result) {
-            console.log(result);
-            var finalJson = [];
-            finalJson.push(result.Results[0]);
-            for (var i = 1, len = result.Results.length; i < len; i++) {
-                if (getUrl == "api/workshop/booking") {
-                    if (result.Results[i].BookingId != result.Results[i - 1].BookingId && result.Results[i].BookingArchived != null) {
-                        finalJson.push(result.Results[i]);
+            if (result.IsSuccess == true) {
+                console.log(result);
+                var finalJson = [];
+                finalJson.push(result.Results[0]);
+                for (var i = 1, len = result.Results.length; i < len; i++) {
+                    if (getUrl == "api/workshop/booking") {
+                        if (result.Results[i].BookingId != result.Results[i - 1].BookingId && result.Results[i].BookingArchived != null) {
+                            finalJson.push(result.Results[i]);
+                        }
                     }
                 }
-            }
-            console.log(finalJson);
-            ko.applyBindings({
-                ko_array: finalJson
-            });
+                console.log(finalJson);
+                ko.applyBindings({
+                    ko_array: finalJson
+                });
 
-            $('ul.f_load li').not(function (i) {
-                return $(this).prevAll('li:has(a[data-workshopid="' + $('a', this).attr('data-workshopid') + '"])').length < 1;
-            }).remove();
-            $(".f_loading div").fadeOut(function () {
-                $(".f_load").fadeIn();
-            });
+                $('ul.f_load li').not(function (i) {
+                    return $(this).prevAll('li:has(a[data-workshopid="' + $('a', this).attr('data-workshopid') + '"])').length < 1;
+                }).remove();
+                $(".f_loading div").fadeOut(function () {
+                    $(".f_load").fadeIn();
+                });
+            } else {
+                $("#api_errorMessage").html(result.DisplayMessage);
+                $(".f_loading div").fadeOut(function () {
+                    $("#api_errorMessage").fadeIn();
+                });
+            }
         }
     })
 }
@@ -247,7 +254,7 @@ function api_WorkshopBookingCancel(workshopId, studentId, userId) {
         success: function (result) {
             if (result.IsSuccess == true) {
                 alert("Cancel Success");
-                window.location.href = "Newsession";
+                window.location.href = "BookingCancel?workshopId=" + workshopId + "&studentId=" + studentId;
             } else {
                 alert("Error:"+result.DisplayMessage);
             }

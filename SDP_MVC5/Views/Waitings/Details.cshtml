@@ -49,7 +49,7 @@
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |*@
     @Html.ActionLink("Back to List", "Index", "Waitings", null, new { @class = "btn btn-primary btn-block" })
     @Html.ActionLink("Go to 'My Booking'", "Newsession", "Home", null, new { @class = "btn btn-warning btn-block" })
-    @Html.ActionLink("Remove this workshop", "Delete", "Waitings", new { id=Url.RequestContext.RouteData.Values["id"]}, new { @class = "btn btn-danger sizeFull btn-block" })
+    @Html.ActionLink("Remove this workshop", "Delete", "Waitings", new { id=Url.RequestContext.RouteData.Values["id"]}, new { @class = "btn btn-danger btn-block" })
 <!-- todo: improve js -->
 <script>
     get_workshopID = $("#f_workshopID").val();
